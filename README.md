@@ -24,6 +24,8 @@ idは使わない
 MindBEMding記法で記述
 [塊]__[要素]--[属性]　例）media__img--left
 
+Bootstrapコンポーネントを使用する箇所はBootstrapの命名規則を使用する（OOCSS）
+
 ###img
 
 [接頭詞]-[要素]-[属性]　例）icon-arrow-green1.png
