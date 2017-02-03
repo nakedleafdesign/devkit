@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"/>
+</head>
+<body>
+<h1 id="コーディングマナー">コーディングマナー</h1>
+
+<ul>
+<li>メンテナンス性、効率を意識したコーディング</li>
+<li>拡張性、再利用性、柔軟性、ルールを持たせる</li>
+<li>要素の追加・削除のし易さを意識する</li>
+</ul>
+
+<h2 id="命名規則">命名規則</h2>
+
+<h3 id="共通">共通</h3>
+
+<p>単語の繋ぎはハイフン「 - 」を使用
+連番は0をつける 例）img01, img02&#8230;
+idは使わない
+ファイル名が長くなる場合は省略可
+- header -&gt; h-
+- globl -&gt; g-
+- footer -&gt; f-</p>
+
+<h3 id="html">HTML</h3>
+
+<p>ファイル名はページタイトルを英語化</p>
+
+<h3 id="css">CSS</h3>
+
+<p>MindBEMding記法で記述
+[塊]__[要素]&#8211;[属性]　例）media__img&#8211;left</p>
+
+<h3 id="img">img</h3>
+
+<p>[接頭詞]-[要素]-[属性]　例）icon-arrow-green1.png
+固有のClass名がある場合は同じファイル名でもよい</p>
+
+<h3 id="jquery">jQuery</h3>
+
+<p>クラスで指定をする、IDは極力使用しない
+クラス名には接頭詞として<strong>js-</strong>を付与する
+例) js-link-match-location</p>
+
+</body>
+</html>
