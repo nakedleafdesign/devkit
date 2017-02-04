@@ -30,21 +30,37 @@ idは使わない
 
 <h3 id="css">CSS</h3>
 
-<p>MindBEMding記法で記述
-[塊]__[要素]&#8211;[属性]　例）media__img&#8211;left</p>
+<p>MindBEMding記法で記述<br/>
+[塊]__[要素]&#8211;[属性]　例）media__img&#8211;left </p>
 
 <p>Bootstrapコンポーネントを使用する箇所はBootstrapの命名規則を使用する（OOCSS）</p>
 
 <h3 id="img">img</h3>
 
-<p>[接頭詞]-[要素]-[属性]　例）icon-arrow-green1.png
+<p>[接頭詞]-[要素]-[属性]　例）icon-arrow-green1.png<br/>
 固有のClass名がある場合は同じファイル名でもよい</p>
 
 <h3 id="jquery">jQuery</h3>
 
-<p>クラスで指定をする、IDは極力使用しない
-クラス名には接頭詞として<strong>js-</strong>を付与する
-例) js-link-match-location</p>
+<p>クラスで指定をする、IDは極力使用しない<br/>
+クラス名には接頭詞として<strong>js-</strong>を付与する<br/>
+例) js-link-match-location </p>
+
+<h2 id="css・sassディレクトリ">CSS・Sassディレクトリ</h2>
+
+<p>ディレクトリの命名規則はSMACSS(https://smacss.com/)に準ずる</p>
+
+<p>├── base<br/>
+├── layout<br/>
+├── module<br/>
+├── style.scss<br/>
+└── tools </p>
+
+<p>style.scss : 読み込みファイル<br/>
+base : ベーススタイル<br/>
+module : 共通パーツスタイル、再利用可能なパーツ<br/>
+layout : 構造系スタイル、ページをエリアごとに分割<br/>
+tools : ツール、ユーティリティ系</p>
 
 </body>
 </html>

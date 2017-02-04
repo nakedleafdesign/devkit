@@ -1,5 +1,24 @@
 // =================================================================================================
-// @ bootstrap components
+// @ bootstrap components 1
+// =================================================================================================
+
+// Core variables and mixins
+@import "../components/bootstrap-sass-3.3.7/assets/stylesheets/bootstrap/variables";
+@import "../components/bootstrap-sass-3.3.7/assets/stylesheets/bootstrap/mixins";
+
+// =================================================================================================
+// @ original stylesheets 1
+// =================================================================================================
+
+// base
+@import "./variable";
+//@import "./mixins/";
+@import "./base/_normalize";
+@import "./base/_reset";
+
+
+// =================================================================================================
+// @ bootstrap components 2
 // =================================================================================================
 
 // Core variables and mixins
@@ -7,8 +26,8 @@
 @import "../components/bootstrap-sass-3.3.7/assets/stylesheets/bootstrap/mixins";
 
 // Reset and dependencies
-@import "../components/bootstrap-sass-3.3.7/assets/stylesheets/bootstrap/normalize";
-@import "../components/bootstrap-sass-3.3.7/assets/stylesheets/bootstrap/print";
+//@import "../components/bootstrap-sass-3.3.7/assets/stylesheets/bootstrap/normalize";
+//@import "../components/bootstrap-sass-3.3.7/assets/stylesheets/bootstrap/print";
 //@import "../components/bootstrap-sass-3.3.7/assets/stylesheets/bootstrap/glyphicons";
 
 // Core CSS
@@ -55,18 +74,26 @@
 
 
 // =================================================================================================
-// @ original stylesheets
+// @ original stylesheets 1
 // =================================================================================================
 
-@import "./module/header";
-@import "./module/footer";
-@import "./module/gnav";
-@import "./module/sidebar";
-@import "./module/visual";
+// layout
 
-@import "./module/parts";
+@import "./layout/top";
+@import "./layout/_footer";
+@import "./layout/_header";
+@import "./layout/_sidebar";
+@import "./layout/_top";
 
-@import "./module/top";
+// module
+
+@import "./module/_gnav";
+@import "./module/_parts";
+@import "./module/_visual";
+
+//tools
+//@import "./tools/xxx";
+
 
 
 
