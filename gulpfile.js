@@ -1,11 +1,14 @@
 // ------------------------------------------------------------
 var gulp        = require('gulp');
-var sass        = require('gulp-sass');
-var plumber     = require('gulp-plumber');
+var $ = require('gulp-load-plugins')({
+        pattern: ['gulp-*', 'gulp.*'],
+        replaceString: /\bgulp[\-.]/
+    });
 var notify      = require('gulp-notify');
-var sourcemaps  = require('gulp-sourcemaps');
+var hologram    = require('gulp-hologram');
+var runSequence = require('run-sequence');
 var browserSync = require('browser-sync');
-var postcss     = require('gulp-postcss');
+
 // ------------------------------------------------------------
 
 
@@ -15,21 +18,54 @@ var browsers = [
 ];
 gulp.task('sass', function(){
     gulp.src('./source/scss/**/*.scss')
-        .pipe(plumber({
+        .pipe($.plumber({
             errorHandler: notify.onError("Error: <%= error.message %>")
         }))
-        .pipe(sourcemaps.init())
-        .pipe(sass())
-        .pipe(postcss([
+        .pipe($.sourcemaps.init())
+        .pipe($.sass())
+        .pipe($.postcss([
             // require('doiuse')({browsers: browsers}),
             // todo:ignoreする https://liginc.co.jp/206518
             require('autoprefixer')({browsers: browsers}),
             require('css-mqpacker')
         ]))
-        .pipe(sourcemaps.write('./'))
+        .pipe($.sourcemaps.write('./'))
         .pipe(gulp.dest('./dist/css/'))
-        .pipe(browserSync.stream());
 });
+
+
+// @ スタイルガイドジェネレーター
+// ------------------------------------------------------------
+
+gulp.task('hologram', function() {
+    return gulp.src('hologram/config.yml')
+        .pipe($.hologram());
+});
+
+
+// @ js結合・圧縮
+// ------------------------------------------------------------
+
+gulp.task('js',function(){
+    gulp.src('./source/js/form/lib/*.js')
+        .pipe($.concat('lib.js'))
+        .pipe($.uglify())
+        .pipe(gulp.dest('./dist/js/form/'))
+    gulp.src('./source/js/form/*.js')
+        .pipe($.concat('form.js'))
+        .pipe(gulp.dest('./dist/js/form/'))
+    gulp.src('./source/js/vender/*.js')
+        .pipe($.concat('vender.js'))
+        .pipe($.uglify())
+        .pipe(gulp.dest('./dist/js/'))
+    gulp.src('./source/js/_jquery.js')
+        .pipe($.concat('jquery.js'))
+        .pipe($.uglify())
+        .pipe(gulp.dest('./dist/js/'))
+    gulp.src(['./source/js/*.js','!./source/js/**/_*.js']) //パーシャルを除外
+        .pipe(gulp.dest('./dist/js'))
+});
+
 
 // @ $copy
 // ------------------------------------------------------------
@@ -39,9 +75,12 @@ gulp.task('copy', function() {
     gulp.src('./source/**/*.html')
         .pipe(gulp.dest('./dist'))
         .pipe(browserSync.stream());
-    gulp.src('./source/js/**/*.js')
-        .pipe(gulp.dest('./dist/js'))
+
+    gulp.src('./source/img/**/*')
+        .pipe(gulp.dest('./dist/img'))
         .pipe(browserSync.stream());
+    gulp.src('./source/fonts/**/*')
+        .pipe(gulp.dest('./dist/fonts'))
 });
 
 
@@ -49,13 +88,10 @@ gulp.task('copy', function() {
 // @ $browser-sync
 // ------------------------------------------------------------
 
-gulp.task('browser-sync', function() {
+gulp.task('bs', function() {
     browserSync({
         server: {
-            //対象ディレクトリ
             baseDir: "./dist/",
-            reloadDelay: 3000
-
         }
     });
 });
@@ -67,18 +103,25 @@ gulp.task('bs-reload', function () {
     browserSync.reload();
 });
 
+
+
 // @ $watch
 // ------------------------------------------------------------
 
-// watchタスク(html,js,sassファイル変更時に実行するタスク)
-gulp.task('watch', ['sass','browser-sync'], function(){
-    var watcher = gulp.watch('./source/scss/**/*.scss', ['sass']);
-    var watcher = gulp.watch('./source/**/*.html', ['copy']);
-    gulp.watch("./source/**/*.html",['bs-reload']);
-    gulp.watch("./source/scss/**/*.scss",['bs-reload']);
-    gulp.watch("./source/js/**/*.js",['bs-reload']);
+gulp.task('watch', function () {
+    gulp.watch('./source/scss/**/*.scss', ['sass','hologram']);
+    gulp.watch('./source/js/**/*.js', ['js']);
+    gulp.watch('./source/**/*.html', ['copy']);
+    gulp.watch('./source/img/*.*', ['copy']);
+    gulp.watch('./source/fonts/*.*', ['copy']);
 
-
+    gulp.watch("./dist/**/*.*").on('change', browserSync.reload);
 });
 
-gulp.task('default', ['watch','copy','browser-sync']);
+
+gulp.task('run', function (callback) {
+    runSequence(
+        'bs',
+        'watch',
+        callback);
+});

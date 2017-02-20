@@ -1,95 +1,60 @@
-// =================================================================================================
-// @ bootstrap components 1
-// =================================================================================================
+@charset "UTF-8";
 
-// Core variables and mixins
+// @ Config & Mixins
+// ------------------------------------------------------------
+
 @import "../components/bootstrap-sass-3.3.7/assets/stylesheets/bootstrap/variables";
-@import "../components/bootstrap-sass-3.3.7/assets/stylesheets/bootstrap/mixins";
-
-// =================================================================================================
-// @ original stylesheets 1
-// =================================================================================================
-
-// base
 @import "./variable";
-//@import "./mixins/";
-@import "./base/_normalize";
-@import "./base/_reset";
-
-
-// =================================================================================================
-// @ bootstrap components 2
-// =================================================================================================
-
-// Core variables and mixins
-@import "../components/bootstrap-sass-3.3.7/assets/stylesheets/bootstrap/variables";
 @import "../components/bootstrap-sass-3.3.7/assets/stylesheets/bootstrap/mixins";
+@import "./mixins/mixin";
 
-// Reset and dependencies
-//@import "../components/bootstrap-sass-3.3.7/assets/stylesheets/bootstrap/normalize";
-//@import "../components/bootstrap-sass-3.3.7/assets/stylesheets/bootstrap/print";
-//@import "../components/bootstrap-sass-3.3.7/assets/stylesheets/bootstrap/glyphicons";
+/* ============================================================ //
+// @ base styles
+// ============================================================ */
 
-// Core CSS
-//@import "../components/bootstrap-sass-3.3.7/assets/stylesheets/bootstrap/scaffolding";
-//@import "../components/bootstrap-sass-3.3.7/assets/stylesheets/bootstrap/type";
-@import "../components/bootstrap-sass-3.3.7/assets/stylesheets/bootstrap/code";
-@import "../components/bootstrap-sass-3.3.7/assets/stylesheets/bootstrap/grid";
-//@import "../components/bootstrap-sass-3.3.7/assets/stylesheets/bootstrap/tables";
-@import "../components/bootstrap-sass-3.3.7/assets/stylesheets/bootstrap/forms";
-@import "../components/bootstrap-sass-3.3.7/assets/stylesheets/bootstrap/buttons";
+@import "./base/normalize";
+@import "./base/reset";
+@import "./base/global";
+@import "./base/fonts";
 
-// Components
-//@import "../components/bootstrap-sass-3.3.7/assets/stylesheets/bootstrap/component-animations";
-//@import "../components/bootstrap-sass-3.3.7/assets/stylesheets/bootstrap/dropdowns";
-//@import "../components/bootstrap-sass-3.3.7/assets/stylesheets/bootstrap/button-groups";
-//@import "../components/bootstrap-sass-3.3.7/assets/stylesheets/bootstrap/input-groups";
-//@import "../components/bootstrap-sass-3.3.7/assets/stylesheets/bootstrap/navs";
-//@import "../components/bootstrap-sass-3.3.7/assets/stylesheets/bootstrap/navbar";
-//@import "../components/bootstrap-sass-3.3.7/assets/stylesheets/bootstrap/breadcrumbs";
-//@import "../components/bootstrap-sass-3.3.7/assets/stylesheets/bootstrap/pagination";
-//@import "../components/bootstrap-sass-3.3.7/assets/stylesheets/bootstrap/pager";
-//@import "../components/bootstrap-sass-3.3.7/assets/stylesheets/bootstrap/labels";
-//@import "../components/bootstrap-sass-3.3.7/assets/stylesheets/bootstrap/badges";
-//@import "../components/bootstrap-sass-3.3.7/assets/stylesheets/bootstrap/jumbotron";
-//@import "../components/bootstrap-sass-3.3.7/assets/stylesheets/bootstrap/thumbnails";
-//@import "../components/bootstrap-sass-3.3.7/assets/stylesheets/bootstrap/alerts";
-//@import "../components/bootstrap-sass-3.3.7/assets/stylesheets/bootstrap/progress-bars";
-//@import "../components/bootstrap-sass-3.3.7/assets/stylesheets/bootstrap/media";
-//@import "../components/bootstrap-sass-3.3.7/assets/stylesheets/bootstrap/list-group";
-//@import "../components/bootstrap-sass-3.3.7/assets/stylesheets/bootstrap/panels";
-//@import "../components/bootstrap-sass-3.3.7/assets/stylesheets/bootstrap/responsive-embed";
-//@import "../components/bootstrap-sass-3.3.7/assets/stylesheets/bootstrap/wells";
-//@import "../components/bootstrap-sass-3.3.7/assets/stylesheets/bootstrap/close";
+/* ============================================================ //
+// @ bootstrap components
+// ============================================================ */
 
-// Components w/ JavaScript
-//@import "../components/bootstrap-sass-3.3.7/assets/stylesheets/bootstrap/modals";
-//@import "../components/bootstrap-sass-3.3.7/assets/stylesheets/bootstrap/tooltip";
-//@import "../components/bootstrap-sass-3.3.7/assets/stylesheets/bootstrap/popovers";
-//@import "../components/bootstrap-sass-3.3.7/assets/stylesheets/bootstrap/carousel";
+@import "./components";
 
-// Utility classes
-//@import "../components/bootstrap-sass-3.3.7/assets/stylesheets/bootstrap/utilities";
-//@import "../components/bootstrap-sass-3.3.7/assets/stylesheets/bootstrap/responsive-utilities";
+/* ============================================================ //
+// @ original stylesheets
+// ============================================================ */
 
+// @ Base
+// ------------------------------
+@import "./base/container";
 
-// =================================================================================================
-// @ original stylesheets 1
-// =================================================================================================
+// @ Module
+// ------------------------------
+@import "./module/_parts";
+@import "./module/_nav";
+@import "./module/_visual";
+@import "./module/_form";
 
-// layout
-
-@import "./layout/top";
+// @ Layout
+// ------------------------------
 @import "./layout/_footer";
 @import "./layout/_header";
 @import "./layout/_sidebar";
-@import "./layout/_top";
+@import "./layout/top";
 
-// module
+// @ Tools
+// ------------------------------
+@import "./tools/text";
+@import "./tools/margin";
+@import "./tools/padding";
+@import "./tools/width";
+@import "./tools/visible";
+@import "./tools/color";
+@import "./tools/util";
 
-@import "./module/_gnav";
-@import "./module/_parts";
-@import "./module/_visual";
-
-//tools
-//@import "./tools/xxx";
+/* ============================================================ //
+// @ media querys
+// ============================================================ */

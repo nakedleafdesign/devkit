@@ -1,0 +1,76 @@
+/* ============================================================ //
+// @ layout container
+// ============================================================ */
+
+.container--full{
+	width: 100%;
+	min-width: 1200px;
+	@include max-media($screen-md){
+		min-width: 100%;
+	}
+}
+
+.inner{
+	margin:0 auto;
+	padding:0 90px;
+	width: 100%;
+	max-width:1200px;
+	@include max-media($screen-md){
+		max-width: 100%;
+		padding: 0 20px;
+	}
+}
+
+.section__wrap{
+	padding:80px 90px;
+	margin:0 auto;
+	width: 100%;
+	max-width:1200px;
+	@include max-media($screen-md){
+		max-width: 100%;
+		padding:40px 20px;
+	}
+	@include max-media($screen-sm){
+		padding:30px 3%;
+	}
+}
+
+
+
+.main-content__inner{
+	margin:0 auto;
+	padding:50px 105px;
+	width: 100%;
+	max-width:1200px;
+	@include max-media($screen-md){
+		max-width: 100%;
+		padding: 30px 20px;
+	}
+	@include max-media($screen-md){
+		padding:20px 3%;
+	}
+}
+
+
+/*--------------------------------------------------------------//
+// @ bootstrap class container overwrite
+// ------------------------------------------------------------ */
+
+.container {
+	
+	@include container-fixed;
+	max-width: 100%;
+	
+	
+	@media (min-width: $screen-sm-min) {
+		width: $container-sm;
+	}
+	@media (min-width: $screen-md-min) {
+		//width: $container-md;
+		width: 990px;
+		
+	}
+	@media (min-width: $screen-lg-min) {
+		width: $container-lg;
+	}
+}

@@ -1,0 +1,16 @@
+*{
+  box-sizing: border-box;
+}
+
+html {
+  font-family: $font-family-base;
+}
+
+body{
+  position: relative;
+  -webkit-text-size-adjust: 100%;
+}
+p{
+  margin:0 0 1em 0;
+  
+}

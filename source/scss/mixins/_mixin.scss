@@ -1,0 +1,78 @@
+//@mixin transition($val) {
+//	transition: all $val ease;
+//}
+
+@mixin btn--line($val:#ccc){
+	border:1px solid $val;
+	border-radius:5px;
+	padding: .75em 1.125em;
+	font-size: 16px;
+	color: $val;
+	text-align: center;
+	background: #fff;
+	line-height: 1;
+	@include transition($btn-trance-spead);
+	@include max-media($screen-md){
+		font-size: 15px;
+		line-height: 1.5;
+	}
+	&:hover,
+	&:focus,
+	&.focus{
+		opacity: .7;
+		color: $val;
+	}
+	> .myicon-circle-right,
+	> .myicon-cart{
+		padding-right:8px;
+	}
+	> .myicon-facebook{
+		font-size:28px;
+		line-height: 42px;
+		padding-right:8px;
+	}
+}
+
+// @ media
+// ------------------------------------------------------------
+
+
+//$screen-xs:                  320px;
+//$screen-xs-min:              $screen-xs;
+//$screen-phone:               $screen-xs-min;
+//$screen-sm:                  414px;
+//$screen-sm-min:              $screen-sm;
+//$screen-tablet:              $screen-sm-min;
+//
+//$screen-md:                  768px;
+//$screen-md-min:              $screen-md;
+//$screen-desktop:             $screen-md-min;
+//
+//$screen-lg:                  1200px;
+//$screen-lg-min:              $screen-lg;
+//
+//$screen-lg-desktop:          $screen-lg-min;
+//
+//
+//$screen-xs-max:              ($screen-sm-min - 1);
+//$screen-sm-max:              ($screen-md-min - 1);
+//$screen-md-max:              ($screen-lg-min - 1);
+
+
+@mixin max-media($break-point) {
+	@media screen and (max-width: $break-point) {
+		@content;
+	}
+}
+
+@mixin min-media($break-point) {
+	@media screen and (min-width: $break-point) {
+		@content;
+	}
+}
+
+@mixin media($break-point-min, $break-point-max) {
+	@media screen and (min-width: $break-point-min) and (max-width: $break-point-max) {
+		@content;
+	}
+}
