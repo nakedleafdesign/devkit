@@ -40,7 +40,7 @@ $swatch-blue     :#3b5998!default;
 $swatch-brawn    :#e5d7c6!default;
 $swatch-red      :#f42d49!default;
 $swatch-pink     :#db8c85!default;
-$swatch-orange   :#E6B400!default;
+$swatch-orange   :#fead34!default;
 $swatch-yellow   :#FEDA34!default;
 
 $swatch-aqua     :#43a3d2;
@@ -78,6 +78,28 @@ $font-family-yugothic: MyYuGothicM, YuGothic, -apple-system, BlinkMacSystemFont,
 $font-family-meiryo: "メイリオ",'Meiryo',MyYuGothicM, YuGothic,'ヒラギノ角ゴシック', 'Hiragino Sans', 'ヒラギノ角ゴ ProN W3', 'Hiragino Kaku Gothic ProN', -apple-system, BlinkMacSystemFont, sans-serif;
 $font-family-base: $font-family-meiryo;
 
+$font-size-base:          14px;
+$font-size-large:         ceil(($font-size-base * 1.25)) !default; // ~18px
+$font-size-small:         ceil(($font-size-base * 0.85)) !default; // ~12px
+
+$font-size-h1:            floor(($font-size-base * 2.6)) !default; // ~36px
+$font-size-h2:            floor(($font-size-base * 2.15)) !default; // ~30px
+$font-size-h3:            ceil(($font-size-base * 1.7)) !default; // ~24px
+$font-size-h4:            ceil(($font-size-base * 1.25)) !default; // ~18px
+$font-size-h5:            $font-size-base !default;
+$font-size-h6:            ceil(($font-size-base * 0.85)) !default; // ~12px
+
+//** Unit-less `line-height` for use in components like buttons.
+$line-height-base:        1.428571429 !default; // 20/14
+//** Computed "line-height" (`font-size` * `line-height`) for use with `margin`, `padding`, etc.
+$line-height-computed:    floor(($font-size-base * $line-height-base)) !default; // ~20px
+
+//** By default, this inherits from the `<body>`.
+$headings-font-family:    inherit !default;
+$headings-font-weight:    500 !default;
+$headings-line-height:    1.1 !default;
+$headings-color:          inherit !default;
+
 
 
 // @ Tables
@@ -111,7 +133,7 @@ $btn-font-weight:                normal;
 
 $btn-default-color:              #333;
 $btn-default-bg:                 #fff;
-$btn-default-border:             #ccc;
+$btn-default-border:             #8d7754;
 
 $btn-primary-color:              #fff;
 $btn-primary-bg:                 $brand-primary;
@@ -136,8 +158,8 @@ $btn-danger-border:              darken($btn-danger-bg, 5%);
 $btn-link-disabled-color:        $gray-light;
 
 // Allows for customizing button radius independently from global border radius
-$btn-border-radius-base:         $border-radius-base;
-$btn-border-radius-large:        $border-radius-large;
+$btn-border-radius-base:         5px;
+$btn-border-radius-large:        20px;
 $btn-border-radius-small:        $border-radius-small;
 
 
@@ -302,3 +324,4 @@ $btn--blue : #3b5998;
 $btn--green : #109974;
 
 $btn-trance-spead : 0.3s;
+$hover-delay:0.3s;
