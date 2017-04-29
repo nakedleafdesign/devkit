@@ -1,0 +1,182 @@
+/* ============================================================ //
+// @ sidebar
+// ============================================================ */
+
+/* @ side module
+// ------------------------------------------------------------ */
+
+/*doc
+---
+title: サイドモジュール
+name: side-module
+category: side
+---
+
+```html_example
+
+<div class="side-module">
+  <h2 class="side-module__heading">買い取りメニュー</h2>
+  <nav class="side-module__inner">
+    
+    //ここにモジュールを挿入してください
+    
+  </nav>
+</div>
+
+```
+*/
+
+.side-module {
+  width: 100%;
+  max-width: 100%;
+  min-height: 1px;
+  margin-bottom: 30px;
+  @include clearfix;
+  &__heading {
+    position: relative;
+    background: $brand-main;
+    border-radius: 5px 5px 0 0;
+    padding: 0 0 0 2.1em;
+    line-height: 44px;
+    font-size: 16px;
+    font-family: $font-family-sawarabi;
+    font-weight: normal;
+    color: #fff;
+    min-height:44px;
+    @include max-media($screen-md){
+      font-size:15px;
+      line-height: 40px;
+      min-height:40px;
+    }
+    @include max-media($screen-md){
+      font-size: 14px;
+      line-height: 38px;
+      min-height:38px;
+    }
+  }
+  &__heading:before {
+    position: absolute;
+    top: 50%;
+    transform: translate(0%, -50%);
+    left: 12px;
+    padding-top: 1px;
+    content: "\e900";
+    line-height: 1;
+    speak: none;
+    font-family: 'myicon';
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    font-size: 18px;
+    @include max-media($screen-md){
+      font-size: 16px;
+      line-height: 40px;
+    }
+    @include max-media($screen-sm){
+      font-size: 15px;
+      line-height: 38px;
+    }
+  }
+  
+  &__inner {
+  }
+}
+
+/* @ side menu
+// ------------------------------------------------------------ */
+
+/*doc
+---
+title: サイドメニュー
+name: side-menu
+category: side
+---
+
+```html_example
+
+<div class="side-module">
+ <h2 class="side-module__heading">買い取りメニュー</h2>
+ <nav class="side-module__inner">
+  
+  <ul class="side-menu">
+    <li class="side-menu-item"><a class="side-menu-item__inner" href="#">
+      <figure class="side-menu-item__img"><img src="/img/common/side-menu-item01.png" width="36px" alt=""></figure>金・プラチナ</a></li>
+    <li class="side-menu-item"><a class="side-menu-item__inner" href="#">
+      <figure class="side-menu-item__img"><img src="/img/common/side-menu-item02.png" width="38px" alt=""></figure>ダイヤ・宝石</a></li>
+    <li class="side-menu-item"><a class="side-menu-item__inner" href="#">
+      <figure class="side-menu-item__img"><img src="/img/common/side-menu-item03.png" width="28px" alt=""></figure>着物</a></li>
+    <li class="side-menu-item"><a class="side-menu-item__inner" href="#">
+      <figure class="side-menu-item__img"><img src="/img/common/side-menu-item04.png" width="24px" alt=""></figure>ロレックス</a></li>
+    <li class="side-menu-item"><a class="side-menu-item__inner" href="#">
+      <figure class="side-menu-item__img"><img src="/img/common/side-menu-item05.png" width="37px" alt=""></figure>ルイ・ヴィトン</a></li>
+    <li class="side-menu-item"><a class="side-menu-item__inner" href="#">
+      <figure class="side-menu-item__img"><img src="/img/common/side-menu-item06.png" width="11px" alt=""></figure>お酒</a></li>
+  </ul>
+   
+ </nav>
+</div>
+
+```
+*/
+
+.side-menu {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  @include max-media($screen-md){
+    display: flex;
+    -js-display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+  }
+}
+
+.side-menu-item {
+  border-bottom: 1px solid #ccc;
+  flex-flow: row wrap;
+  display: inline-flex;
+  width: 100%;
+  @include max-media($screen-md){
+    width: 49%;
+  }
+  a {
+    text-decoration: none;
+    width: 100%;
+    min-height: 50px;
+    font-size: .933333333em;
+    font-family:$font-family-sawarabi;
+    color:$text-color;
+    @include max-media($screen-md){
+      min-height:44px;
+    }
+  }
+  a.is-active{
+    background: #eee;
+  }
+  &:link,
+  &:active,
+  &:hover,
+  &:visited,
+  &:focus{
+    text-decoration: none;
+    color:$text-color;
+  }
+  &:hover{
+    @include transition-delay;
+    background: #eee;
+  }
+  &__inner{
+    display: flex;
+    -js-display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+  }
+  &__img{
+    box-sizing: content-box;
+    padding-right:8px;
+    width: 50px;
+    float: left;
+    text-align: center;
+  }
+}

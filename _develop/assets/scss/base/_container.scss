@@ -1,0 +1,164 @@
+/* ============================================================ //
+// @ layout container
+// ============================================================ */
+
+.container--full {
+  width: 100%;
+  min-width: 1100px;
+  @include max-media($screen-md) {
+    min-width: 100%;
+    overflow-x: hidden;
+  }
+}
+
+/* @ メインコンテナー
+// ------------------------------ */
+
+.container-main{
+  margin-top: 50px;
+  @include max-media($screen-md){
+    padding-top: 30px;
+  }
+  @include max-media($screen-sm){
+    padding-top: 10px;
+  }
+}
+
+.container-main__inner{
+  display: flex;
+  -js-display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  margin: 0 auto;
+  padding: 0 50px;
+  width: 100%;
+  max-width: 1100px;
+  @include max-media($screen-md) {
+    max-width: 100%;
+    padding: 0 20px;
+  }
+  @include max-media($screen-sm) {
+    padding: 0 3.125%;
+  }
+  &__primary{
+    @include perwidth(1000,750);
+    @include max-media($screen-md){
+      width: 100%;
+    }
+    
+  }
+  &__secondary{
+    @include perwidth(1000,220);
+    @include max-media($screen-md){
+      width: 100%;
+    }
+  }
+}
+
+/* @ 汎用コンテナ
+// ------------------------------ */
+
+
+.container__inner {
+  margin: 0 auto;
+  padding: 0 50px;
+  width: 100%;
+  max-width: 1100px;
+  @include max-media($screen-md) {
+    max-width: 100%;
+    padding: 0 20px;
+  }
+  @include max-media($screen-sm) {
+    padding: 0 3.125%;
+  }
+}
+
+.container__inner--sp-full {
+  margin: 0 auto;
+  padding: 0 50px;
+  width: 100%;
+  max-width: 1100px;
+  @include max-media($screen-md) {
+    max-width: 100%;
+    padding: 0 20px;
+  }
+  @include max-media($screen-sm) {
+    padding: 0;
+  }
+}
+
+.container__inner--md-full {
+  margin: 0 auto;
+  padding: 0 50px;
+  width: 100%;
+  max-width: 1100px;
+  @include max-media($screen-md) {
+    max-width: 100%;
+    padding: 0;
+  }
+}
+
+.section-container {
+  margin: 0 auto;
+  width: 100%;
+  min-width: 1100px;
+  margin-bottom: 80px;
+  @include max-media($screen-md) {
+    max-width: 100%;
+    min-width: 100%;
+    margin-bottom: 50px;
+    
+  }
+  @include max-media($screen-sm) {
+    margin-bottom: 50px;
+  }
+}
+
+.main-content__inner {
+  margin: 0 auto;
+  padding: 50px 105px;
+  width: 100%;
+  max-width: 1100px;
+  @include max-media($screen-md) {
+    max-width: 100%;
+    padding: 30px 20px;
+  }
+  @include max-media($screen-md) {
+    padding: 20px 3%;
+  }
+}
+
+.section-unit{
+  padding: 50px 0;
+  &:first-child{
+    padding-top: 0;
+  }
+  @include max-media($screen-md){
+    padding: 40px 0;
+  }
+  @include max-media($screen-sm){
+    padding: 30px 0;
+  }
+}
+
+/*--------------------------------------------------------------//
+// @ bootstrap class container overwrite
+// ------------------------------------------------------------ */
+
+.container {
+  
+  @include container-fixed;
+  max-width: 100%;
+  
+  @media (min-width: $screen-sm-min) {
+    width: $container-sm;
+  }
+  @media (min-width: $screen-md-min) {
+    //width: $container-md;
+    width: 990px;
+    
+  }
+  @media (min-width: $screen-lg-min) {
+    width: $container-lg;
+  }
+}

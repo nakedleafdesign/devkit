@@ -1,0 +1,1236 @@
+/* ============================================================ //
+// @ parts styles
+// ============================================================ */
+
+$font-size-lg: 20px;
+$font-size-md: 18px;
+$font-size-sm: 17px;
+
+/*--------------------------------------------------------------//
+// @ unit
+// ------------------------------------------------------------ */
+
+/*doc
+---
+title: テキストユニット
+name: text-unit
+category: text
+---
+
+
+```html_example
+
+<div class="text-unit">
+  <p>あのイーハトーヴォのすきとおった風、夏でも底に冷たさをもつ青いそら、うつくしい森で飾られたモリーオ市、郊外のぎらぎらひかる草の波。 </p>
+  <p>またそのなかでいっしょになったたくさんのひとたち、ファゼーロとロザーロ、羊飼のミーロや、顔の赤いこどもたち、地主のテーモ、山猫博士のボーガント・デストゥパーゴなど、いまこの暗い巨きな石の建物のなかで考えていると、みんなむかし風のなつかしい青い幻燈のように思われます。</p>
+</div>
+
+```
+
+*/
+
+.text-unit {
+    p {
+      font-size: 1em;
+      margin-bottom: 1em;
+    }
+    *:last-child {
+      margin-bottom: 0;
+    }
+    
+  em {
+    color: #f42d49;
+    font-style: normal;
+    font-weight: bold;
+  }
+}
+
+
+/*--------------------------------------------------------------//
+// @ heading
+// ------------------------------------------------------------ */
+
+
+
+/*doc
+---
+title: 見出し1
+name: heading01
+category: heading
+---
+
+```html_example
+
+<div class="heading01-unit">
+  <h2 class="heading01"><span class="heading01__inner">質屋リサイクルマートが選ばれるワケ</span></h2>
+  <p class="heading01__lead">ご自宅のご不用品をまとめて買取します！</p>
+</div>
+
+```
+
+*/
+
+.heading01-unit {
+  margin-bottom: 2.5em;
+  @include max-media($screen-sm){
+    margin-bottom: 2em;
+  }
+}
+
+.heading01 {
+  position: relative;
+  top: -.6em;
+  text-align: center;
+  font-size:1.666666667em;
+  font-family:$font-family-sawarabi;
+  color: $heading-color;
+  border-bottom:2px solid #c7a974;
+  font-weight: normal;
+  @include max-media($screen-md){
+    display: flex;
+    -js-display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    justify-content:center;
+    font-size:1.466666667em;
+  }
+  @include max-media($screen-sm){
+    top: 0;
+    font-size: 1.3em;
+    padding-bottom: .2em;
+  }
+  &:before {
+    display: block;
+    position: absolute;
+    left: 0;
+    bottom:-2px;
+    content: "";
+    width: 25px;
+    height:16px;
+    background: url('../img/common/heading01_icon_left.png') center center no-repeat #fff;
+    background-size:cover;
+  }
+  &:after{
+    display: block;
+    position: absolute;
+    right: 0;
+    bottom:-2px;
+    content: "";
+    width: 25px;
+    height:16px;
+    background: url('../img/common/heading01_icon_right.png') center center no-repeat #fff;
+    background-size:cover;
+  }
+  &__inner{
+    position: relative;
+    bottom:-.45em;
+    padding:0 1em;
+    background: #fff;
+    @include max-media($screen-sm){
+      //bottom:0;
+      //background: transparent;
+      //width: 80%;
+      padding:0 1em;
+      
+    }
+  }
+  &__lead{
+    text-align: center;
+    margin: -.3em 0 0;
+    font-size:.933333333em;
+    line-height: 1.2;
+    @include max-media($screen-sm){
+      font-size:.857142857em;
+      margin: .8em 0 0;
+    }
+  }
+}
+
+.heading01.heading01--white{
+  color: #fff;
+  border-color: #fff;
+  &:before,
+  &:after{
+    display: block;
+    position: absolute;
+    right: 0;
+    bottom:-2px;
+    content: "";
+    width: 25px;
+    height:16px;
+  }
+  &:before{
+    background: url('../img/common/heading01_icon_left--white.png') center center no-repeat $brand-main;
+    background-size:cover;
+  }
+  &:after{
+    background: url('../img/common/heading01_icon_right--white.png') center center no-repeat $brand-main;
+    background-size:cover;
+  }
+  .heading01__inner{
+    background: $brand-main;
+  }
+}
+.heading01__lead.heading01__lead--white {
+  color: #fff;
+}
+
+
+/*doc
+---
+title: 見出し2
+name: heading02
+category: heading
+---
+
+```html_example
+
+<h2 class="heading02">見出しタイプ2</h2>
+
+```
+
+
+*/
+
+
+.heading02{
+  text-align: center;
+  border-top:1px solid #ccc;
+  border-bottom:1px solid #ccc;
+  padding: .4em 0 .35em;
+  line-height: 1.2;
+  font-size:1.333333333em;
+  color: $text-color;
+  margin-bottom: 1.5em;
+}
+
+/*doc
+---
+title: 見出し3
+name: heading03
+category: heading
+---
+
+```html_example
+
+<h3 class="haeding03">お電話からご依頼</h3>
+
+```
+
+*/
+
+.haeding03{
+  position: relative;
+  font-size:1.133333333em;
+  font-family:$font-family-sawarabi;
+  color: $brand-main;
+  margin-bottom: 1em;
+  padding-left:20px;
+  font-weight: normal;
+  @include max-media($screen-md){
+    display: inline-block;
+    font-size:1.2em;
+  }
+  @include max-media($screen-sm){
+    font-size:1.142857143em;
+  }
+  &:before{
+    position: absolute;
+    top: 50%;
+    transform: translate(0%, -50%);
+    left: 0;
+    content: "\e900";
+    line-height: 1;
+    speak: none;
+    font-family: 'myicon';
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    font-size: 18px;
+    color: $brand-main;
+  }
+  &.heading03--white{
+    color: #fff;
+  }
+  &.heading03--white:before{
+    color: #fff;
+  }
+}
+
+/*doc
+---
+title: 見出し4
+name: heading04
+category: heading
+---
+
+```html_example
+
+<h4 class="heading04">お電話からご依頼</h4>
+
+```
+
+*/
+
+.heading04{
+  padding-bottom: .3em;
+  border-bottom:1px solid $text-color;
+  font-size:1.2em;
+  line-height: 1.2;
+  margin-bottom: 1em;
+  @include max-media($screen-md){
+  
+  }
+  @include max-media($screen-sm){
+  
+  }
+}
+.heading04.heading04--white{
+  color: #fff;
+  border-color: #fff;
+}
+
+/*doc
+---
+title: タイトル
+name: heading05
+category: heading
+---
+
+
+```html_example
+
+<h5 class="heading05">お電話からご依頼</h5>
+
+```
+
+*/
+
+.heading05{
+  display: block;
+  margin: 1em 0;
+  border-left: 3px solid $brand-main-lighter;
+  padding-left: .5em;
+  font-size: 18px;
+}
+
+/*doc
+---
+title: title heading
+name: title-heading
+category: heading
+---
+
+
+```html_example
+
+<h1 class="title-heading">ダミータイトル</h1>
+
+```
+
+*/
+
+.title-heading{
+  position: relative;
+  font-size:1.466666667em;
+  font-family:$font-family-sawarabi;
+  border-bottom:1px solid #aaa;
+  color: $brand-main;
+  padding:0 0 .2em .2em;
+  margin:1em 0 1.5em;
+  &:before{
+    position: absolute;
+    left: 0;
+    bottom: -4px;
+    width:100%;
+    height: 1px;
+    background: #aaa;
+    content: '';
+
+  }
+}
+
+/*--------------------------------------------------------------//
+// @ paragraph
+// ------------------------------------------------------------ */
+
+//*--------------------------------------------------------------//
+// @ btn
+// ------------------------------------------------------------ */
+
+/*doc
+---
+title: ボタン タイプ1
+name: btn01
+category: btn
+---
+
+
+
+```html_example
+
+<div class="btn-group">
+  <a href="#" class="btn btn01">ボタン</a>
+  <a href="#" class="btn btn01 btn01--lighten">ボタン</a>
+  <a href="#" class="btn btn01 btn01--primary">ボタン</a>
+  <a href="#" class="btn btn01 btn01--success">ボタン</a>
+  <a href="#" class="btn btn01 btn01--info">ボタン</a>
+  <a href="#" class="btn btn01 btn01--warning">ボタン</a>
+  <a href="#" class="btn btn01 btn01--danger">ボタン</a>
+</div>
+
+<h1 class="styleguide">固定幅</h1>
+<div class="btn-group">
+  <a href="#" class="btn btn01 btn-fixed">質預かりについて</a><br>
+</div>
+
+<h1 class="styleguide">横幅一杯</h1>
+<div class="btn-group">
+  <a href="#" class="btn btn01 btn-block">質預かりについて</a><br>
+</div>
+
+```
+
+*/
+
+
+.btn-group{
+  margin-right: -9px;
+  margin-left: -9px;
+  text-align: center;
+  margin-bottom: 18px;
+  
+  .btn{
+    margin-right: 9px;
+    margin-left: 9px;
+    margin-bottom: 10px;
+    
+  }
+}
+
+/* @ ボタン初期スタイルリセット (a,input:submit,buttun)
+// ------------------------------------------------------------ */
+.btn {
+  text-decoration: none;
+  display: inline-block;
+  font-weight: $btn-font-weight;
+  text-align: center;
+  vertical-align: middle;
+  touch-action: manipulation;
+  cursor: pointer;
+  background-image: none; // Reset unusual Firefox-on-Android default style; see https://github.com/necolas/normalize.css/issues/214
+  border: 1px solid transparent;
+  white-space: nowrap;
+  margin-bottom: 20px;
+  &:hover,
+  &:focus,
+  &.focus {
+    text-decoration: none;
+    outline: 0;
+    background-image: none;
+  }
+}
+
+/* @ option
+// ------------------------------ */
+
+.btn.btn-fixed{
+  width: 100%;
+  max-width: 300px;
+}
+.btn.btn-block{
+  display: block;
+  width: 100%;
+}
+
+/* @ ボタン タイプ1
+// ------------------------------ */
+
+.btn01{
+  border-radius: 8px;
+  font-family: $font-family-sawarabi;
+  color: #fff;
+  background: $brand-main-lighter;
+  line-height: 1.4;
+  padding:.5em 2em .4em;
+  font-size:1.066666667em;
+  box-shadow:1px 1px 0 1px darken($brand-main-lighter,20);
+  @include link-hover();
+  &:link,
+  &:active,
+  &:hover,
+  &:visited,
+  &:focus{
+    color: #fff;
+    text-decoration: none;
+  }
+  &:active{
+    box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+  }
+}
+
+
+@mixin btn01($val){
+  background: $val;
+  box-shadow:1px 1px 0 1px darken($val,20);
+  &:active{
+    box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+  }
+}
+
+.btn01{
+  &.btn01--lighten{
+    @include btn01($brand-main-lighten);
+  }
+  &.btn01--primary{
+    @include btn01($brand-primary);
+  }
+  &.btn01--success{
+    @include btn01($brand-success);
+  }
+  &.btn01--info{
+    @include btn01($brand-info);
+  }
+  &.btn01--warning{
+    @include btn01($brand-warning);
+  }
+  &.btn01--danger{
+    @include btn01($brand-danger);
+  }
+}
+
+/*doc
+---
+title: ボタン タイプ2
+name: btn02
+category: btn
+---
+
+
+
+```html_example
+
+<div class="btn-group">
+  <a href="#" class="btn btn02">ボタン</a>
+  <a href="#" class="btn btn02 btn02--lighten">ボタン</a>
+  <a href="#" class="btn btn02 btn02--primary">ボタン</a>
+  <a href="#" class="btn btn02 btn02--success">ボタン</a>
+  <a href="#" class="btn btn02 btn02--info">ボタン</a>
+  <a href="#" class="btn btn02 btn02--warning">ボタン</a>
+  <a href="#" class="btn btn02 btn02--danger">ボタン</a>
+</div>
+
+<h1 class="styleguide">固定幅</h1>
+<div class="btn-group">
+  <a href="#" class="btn btn02 btn-fixed">質預かりについて</a><br>
+</div>
+
+<h1 class="styleguide">横幅一杯</h1>
+<div class="btn-group">
+  <a href="#" class="btn btn02 btn-block">質預かりについて</a><br>
+</div>
+
+```
+
+*/
+
+.btn02{
+  padding:.3em 2em .25em;
+  background: $brand-main;
+  line-height: 1.2;
+  border-radius:50px;
+  color: #fff;
+  font-size:1.066666667em;
+  @include link-hover();
+  &:link,
+  &:active,
+  &:hover,
+  &:visited,
+  &:focus{
+    color: #fff;
+  }
+  &:active{
+    box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+  }
+}
+
+@mixin btn02($val){
+  background: $val;
+}
+.btn02{
+  &.btn02--lighten{
+    @include btn02(#8d836e);
+  }
+  &.btn02--primary{
+    @include btn02($brand-primary);
+  }
+  &.btn02--success{
+    @include btn02($brand-success);
+  }
+  &.btn02--info{
+    @include btn02($brand-info);
+  }
+  &.btn02--warning{
+    @include btn02($brand-warning);
+  }
+  &.btn02--danger{
+    @include btn02($brand-danger);
+  }
+}
+
+/*--------------------------------------------------------------//
+// @ google map
+// ------------------------------------------------------------ */
+
+//<div class="gmap__container">
+//<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6647.602780198366!2d130.4138719827198!3d33.58450563073572!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x354191bbceab303b%3A0xa7c92715024a34fc!2z44CSODEyLTAwMTEg56aP5bKh55yM56aP5bKh5biC5Y2a5aSa5Yy65Y2a5aSa6aeF5YmN77yU5LiB55uu77yS77yS4oiS77yS77yVIOODnuOCueODiOWNmuWkmg!5e0!3m2!1sja!2sjp!4v1486384627932" frameborder="0" style="border:0" allowfullscreen></iframe>
+//</div>
+
+//.gmap__container {
+//	position: relative;
+//	padding-bottom: 56.25%;
+//	padding-top: 30px;
+//	height: 0;
+//	overflow: hidden;
+//	@include max-media($screen-sm){
+//		padding-top: 80%;
+//	}
+//}
+//
+//.gmap__container iframe,
+//.gmap__container object,
+//.gmap__container embed {
+//	position: absolute;
+//	top: 0;
+//	left: 0;
+//	width: 100%;
+//	height: 100%;
+//}
+
+/*--------------------------------------------------------------//
+// @ google calendar
+// ------------------------------------------------------------ */
+
+/*--------------------------------------------------------------//
+// @ list
+// ------------------------------------------------------------ */
+
+/*doc
+---
+title: リスト1
+name: list01
+category: list
+---
+
+
+```html_example
+
+<ul class="list01">
+  <li>リストサンプル</li>
+  <li>リストサンプル</li>
+  <li>リストサンプル</li>
+  <li>リストサンプル</li>
+  <li>リストサンプル</li>
+  <li>リストサンプル</li>
+</ul>
+
+```
+
+*/
+
+/*doc
+---
+title: リスト2
+name: list02
+category: list
+---
+
+
+```html_example
+
+<ul class="list02">
+  <li>リストサンプル</li>
+  <li>リストサンプル</li>
+  <li>リストサンプル</li>
+  <li>リストサンプル</li>
+  <li>リストサンプル</li>
+  <li>リストサンプル</li>
+</ul>
+
+```
+
+*/
+
+.list02{
+  list-style: none;
+  li{
+    list-style: none;
+    position: relative;
+    
+  }
+  li:before{
+    position: absolute;
+    top: 0.3em;
+    left: -1em;
+    @include fa-icon();
+    content: "";
+    color: $brand-main;
+  }
+  
+}
+
+/*doc
+---
+title: リスト番号
+name: list-nun
+category: list
+---
+
+
+```html_example
+
+<ol class="list-num">
+  <li>リストサンプル</li>
+  <li>リストサンプル</li>
+  <li>リストサンプル</li>
+  <li>リストサンプル</li>
+  <li>リストサンプル</li>
+  <li>リストサンプル</li>
+</ol>
+
+```
+
+*/
+
+
+
+/*--------------------------------------------------------------//
+// @ table
+// ------------------------------------------------------------ */
+
+/*doc
+---
+title: テーブル01
+name: table01
+category: table
+---
+
+
+```html_example
+
+<div class="table01">
+  <table>
+    <tr>
+      <th>タイトル</th>
+      <td>ダミーテキスト</td>
+    </tr>
+    <tr>
+      <th>タイトル</th>
+      <td>ダミーテキスト</td>
+    </tr>
+    <tr>
+      <th>タイトル</th>
+      <td>ダミーテキスト</td>
+    </tr>
+  </table>
+</div>
+
+```
+
+*/
+
+%table-base {
+  table {
+    border-collapse:collapse;
+    margin: 1em 0;
+    width: 100%;
+    table-layout: auto;
+  }
+  
+  th {
+    border:solid 1px #948b79;
+    border-bottom:solid 1px #948b79;
+    font-weight: 600;
+    color:#fff;
+    background: $brand-main;
+  }
+  
+  td {
+    border:solid 1px $table-border-color;
+  }
+  th,td{
+    padding: 1em .8em;
+    @include max-media($screen-sm){
+      padding: .5em .3em;
+    }
+  }
+  
+  tr,
+  td,
+  th {
+    text-align: left;
+    vertical-align: top;
+    @include max-media($screen-sm){
+      display: block;
+      width: 100%;
+    }
+  }
+}
+
+
+.table01{
+  @extend %table-base;
+  th{
+    width: 30%;
+  }
+}
+
+/*doc
+---
+title: スクロールテーブル
+name: table--scroll
+category: table
+---
+
+
+```html_example
+
+<div class="table01 table--scroll">
+  <table>
+    <tr>
+      <th>ダミータイトル</th>
+      <td>ダミーテキストです。ご了承ください。ダミーテキストです。ご了承ください。ダミーテキストです。ご了承ください。</td>
+    </tr>
+    <tr>
+      <th>ダミータイトル</th>
+      <td>ダミーテキストです。ご了承ください。ダミーテキストです。ご了承ください。ダミーテキストです。ご了承ください。</td>
+    </tr>
+  </table>
+</div>
+
+```
+
+*/
+
+.table--scroll{
+  
+  @include max-media($screen-sm){
+    
+    
+    td, th {
+      white-space: nowrap;
+      width: 100%;
+    }
+    width: 100%;
+    overflow-y: hidden;
+    overflow-x: auto;
+    position: relative;
+    &:before {
+      @include fa-icon();
+      text-align: center;
+      display: block;
+      font-size: 12px;
+      content: "#{$fa-var-arrows-h}　この表は左右に動かせます。";
+      //margin-bottom: 20px;
+      padding-bottom: 5px;
+    }
+  }
+  @include max-media($screen-sm){
+    &:after {
+      //    content: "#{$fa-var-arrows-h}　このテーブルは左右に動かす事が出来ます。";
+    }
+  }
+}
+
+
+/*doc
+---
+title: テーブル02
+name: table02
+category: table
+---
+
+
+```html_example
+
+<div class="table02">
+  <table>
+    <tr>
+      <th>商品名</th>
+      <td>ヴィトン Ｍ40007</td>
+    </tr>
+    <tr>
+      <th>買取価格</th>
+      <td>34,000円</td>
+    </tr>
+    <tr>
+      <th>取扱店舗</th>
+      <td>リサイクルマート 中洲店</td>
+    </tr>
+  </table>
+</div>
+
+```
+
+*/
+
+.table02{
+  @extend %table-base;
+  table{
+    margin:1em 0 2em;
+  }
+  th,td,tr{
+    @include max-media($screen-sm){
+      display: block;
+    }
+  }
+  th,td{
+    border-top: none;
+    border-right:none;
+    border-left:none;
+    
+  }
+  th{
+    background: transparent;
+    color:$text-color;
+  }
+  tr{
+    @include max-media($screen-sm){
+      margin-bottom: 1em;
+    }
+  }
+}
+
+.table02.table02-auto-width{
+  table{
+    width:auto;
+    @include max-media($screen-sm){
+      width: 100%;
+    }
+  }
+}
+
+/*--------------------------------------------------------------//
+// @ grid
+// ------------------------------------------------------------ */
+
+.sample-grid-dummuy{
+  background: $brand-success;
+  box-sizing: border-box;
+  border:3px solid #fff;
+  border-radius: 7px;
+  padding:.5em 0;
+  color: #fff;
+  font-weight: bold;
+  text-align: center;
+}
+
+/*doc
+---
+title: grid-extension
+name: grid-extension
+category: grid
+---
+
+<h3 class="sg-pattern-title"> sectionTitle </h3>
+
+```html_example
+
+<h5 class="heading05">左寄せ</h5>
+<div class="row">
+  <div class="col-xs-12">
+    <figure class="grid-img--left"><img src="https://placehold.jp/250x150.png" alt=""></figure>
+    <div class="text-unit">
+      <p>あのイーハトーヴォのすきとおった風、夏でも底に冷たさをもつ青いそら、うつくしい森で飾られたモリーオ市、郊外のぎらぎらひかる草の波。
+        またそのなかでいっしょになったたくさんのひとたち、ファゼーロとロザーロ、羊飼のミーロや、顔の赤いこどもたち、地主のテーモ、山猫博士のボーガント・デストゥパーゴなど、いまこの暗い巨きな石の建物のなかで考えていると、みんなむかし風のなつかしい青い幻燈のように思われます。では、わたくしはいつかの小さなみだしをつけながら、しずかにあの年のイーハトーヴォの五月から十月までを書きつけましょう。</p>
+      <p>あのイーハトーヴォのすきとおった風、夏でも底に冷たさをもつ青いそら、うつくしい森で飾られたモリーオ市、郊外のぎらぎらひかる草の波。
+        またそのなかでいっしょになったたくさんのひとたち、ファゼーロとロザーロ、羊飼のミーロや、顔の赤いこどもたち、地主のテーモ、山猫博士のボーガント・デストゥパーゴなど、いまこの暗い巨きな石の建物のなかで考えていると、みんなむかし風のなつかしい青い幻燈のように思われます。では、わたくしはいつかの小さなみだしをつけながら、しずかにあの年のイーハトーヴォの五月から十月までを書きつけましょう。</p>
+    </div>
+  </div>
+</div>
+<hr>
+<h5 class="heading05">右寄せ</h5>
+<div class="row">
+  <div class="col-xs-12">
+    <figure class="grid-img--right"><img src="https://placehold.jp/250x150.png" alt=""></figure>
+    <div class="text-unit">
+      <p>あのイーハトーヴォのすきとおった風、夏でも底に冷たさをもつ青いそら、うつくしい森で飾られたモリーオ市、郊外のぎらぎらひかる草の波。
+        またそのなかでいっしょになったたくさんのひとたち、ファゼーロとロザーロ、羊飼のミーロや、顔の赤いこどもたち、地主のテーモ、山猫博士のボーガント・デストゥパーゴなど、いまこの暗い巨きな石の建物のなかで考えていると、みんなむかし風のなつかしい青い幻燈のように思われます。では、わたくしはいつかの小さなみだしをつけながら、しずかにあの年のイーハトーヴォの五月から十月までを書きつけましょう。</p>
+      <p>あのイーハトーヴォのすきとおった風、夏でも底に冷たさをもつ青いそら、うつくしい森で飾られたモリーオ市、郊外のぎらぎらひかる草の波。
+        またそのなかでいっしょになったたくさんのひとたち、ファゼーロとロザーロ、羊飼のミーロや、顔の赤いこどもたち、地主のテーモ、山猫博士のボーガント・デストゥパーゴなど、いまこの暗い巨きな石の建物のなかで考えていると、みんなむかし風のなつかしい青い幻燈のように思われます。では、わたくしはいつかの小さなみだしをつけながら、しずかにあの年のイーハトーヴォの五月から十月までを書きつけましょう。</p>
+    </div>
+  </div>
+
+```
+
+imgタグの親要素に
+<ul>
+    <li>grid-img</li>
+    <li>grid-img--left</li>
+    <li>grid-img--right</li>
+    <li>grid-img--center</li>
+  </ul>
+などのクラスを付与するとグリッド内の要素に対してマージンやフロートを付与することができます。
+
+*/
+
+
+.grid-img{
+  margin-bottom: 1em;
+}
+.grid-img--left{
+  margin:0 1em 1em 0;
+  float: left;
+  @include max-media($screen-sm){
+    margin:0 auto 1em;
+    float: none;
+    text-align: center;
+  }
+}
+.grid-img--right{
+  margin:0 0 1em 1em;
+  float: right;
+  @include max-media($screen-sm){
+    margin:0 auto 1em;
+    float: none;
+    text-align: center
+  }
+}
+.grid-img--center{
+  margin:0 auto 1em;
+  text-align: center;
+}
+
+/*--------------------------------------------------------------//
+// @ text
+// ------------------------------------------------------------ */
+
+/* @ text
+ * ------------------------------------------------------------ */
+/*doc
+---
+title: テキスト装飾
+name: text
+category: text
+---
+
+<div class="styleguide-table"></div>
+View                                                                      | Class          |  Description
+-----------------------------------------------------------------------   | ------------   |   ---------   |
+<p class="text">ダミーテキストです。ご了承ください。</p>                       | `text`         |               |
+<p><a class="text-link--under">ダミーテキストです。ご了承ください。</a> </p>                | `text-link--under`    |               |
+<p><a class="text-link--bg">ダミーテキストです。ご了承ください。</a>    </p>              | `text-link--bg`    |               |
+<p><a class="text-link--under-none">ダミーテキストです。ご了承ください。</a> </p>                 | `text-link--under-none`    |               |
+<p class="text-bold">ダミーテキストです。ご了承ください。</p>                  | `text-bold`    |               |
+<p class="text-left">ダミーテキストです。ご了承ください。</p>                  | `text-left`    |               |
+<p class="text-center">ダミーテキストです。ご了承ください。</p>                | `text-center`  |               |
+<p class="text-right">ダミーテキストです。ご了承ください。</p>                 | `text-right`   |               |
+<p class="text-point">ダミーテキストです。ご了承ください。</p>                 | `text-point`   |               |
+<p class="text-strike">ダミーテキストです。ご了承ください。</p>                | `text-strike`  |               |
+<p class="text-caption">ダミーテキストです。ご了承ください。</p>               | `text-caption` |               |
+<p class="text-small">ダミーテキストです。ご了承ください。</p>                 | `text-small`   |               |
+<p class="text-square">ダミーテキストです。ご了承ください。</p>                | `text-square`  |               |
+<p class="text-button"><a href="">ダミーテキストです。ご了承ください。</a></p> | `text-button`  |               |
+
+*/
+
+
+.text-bold {
+  font-weight: bold;
+}
+
+a.text-link--under {
+  text-decoration: underline;
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+a.text-link--bg {
+  transition: all $hover-transition;
+  border-bottom: 1px solid $hover-bg;
+  text-decoration: none;
+  &:active,
+  &:focus,
+  &:hover {
+    color: $link-hover-color;
+  }
+  &:hover {
+    border-bottom: 1px solid $hover-bg;
+    background-color: $hover-bg;
+  }
+  &:link {
+    border-bottom: 1px solid $gray;
+  }
+  &:visited {
+    border-bottom: 1px solid $hover-bg;
+  }
+}
+
+a.text-link--under-none {
+  text-decoration: none;
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.text-left {
+  text-align: left;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.text-small {
+  font-size: .8em;
+}
+
+
+.text-caption {
+  color: $text-color-sub;
+  font-size: 14px;
+  line-height: 1.714285714;
+}
+
+.text-point {
+  display: inline;
+  //background: linear-gradient(transparent 70%, $brand-yellow 70%, $brand-yellow 90%, transparent 90%);
+  background: $swatch-yellow;
+  font-weight: bold;
+  padding: 1px;
+}
+
+.text-strike {
+  text-decoration: line-through;
+}
+
+
+.text-square {
+  margin-top: -1px;
+  border-radius: 4px;
+  background-color: $brand-main;
+  padding: 4px 8px;
+  color: #fff;
+}
+
+.text-button a {
+  display: inline-block;
+  transition: all $hover-transition;
+  border-radius: 5px;
+  background-color: $brand-main;
+  padding: 8px 30px 7px;
+  color: #fff;
+  @include link-hover();
+}
+
+.text-button a,
+.text-button a:hover {
+  text-decoration: none;
+  color: #fff;
+}
+
+/*--------------------------------------------------------------//
+// @ img
+// ------------------------------------------------------------ */
+
+/*doc
+---
+title: 画像
+name: img
+category: images
+---
+
+
+```html_example
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-3"><img class="img-responsive" src="https://placehold.jp/150x150.png" alt="ダミー"></div>
+    <div class="col-xs-3"><img class="img-frame" src="https://placehold.jp/150x150.png" alt="ダミー"></div>
+    <div class="col-xs-3"><img class="img-round" src="https://placehold.jp/150x150.png" alt="ダミー"></div>
+    <div class="col-xs-3"><img class="img-circle" src="https://placehold.jp/150x150.png" alt="ダミー"></div>
+  </div>
+  <br>
+  <div class="row">
+    <div class="col-xs-3 img-shine"><img class=" img-responsive" src="https://placehold.jp/150x150.png" alt="ダミー"></div>
+  </div>
+</div>
+
+```
+
+*/
+
+.img-responsive{
+  display: block;
+  max-width: 100%;
+  height: auto;
+  width: 100%;
+}
+.img-frame{
+  border: 1px solid #ccc;
+  background-color: #FFF;
+  padding:3px;
+  height: auto;
+  img{vertical-align: bottom;}
+}
+.img-round {
+  border-radius: 5px;
+  overflow: hidden;
+  img{vertical-align: bottom;}
+}
+.img-circle { border-radius: 50%; }
+.img-shine {
+  overflow: hidden;
+  line-height: 0;
+  position: relative;
+  img{}
+  &:before {
+    content: '';
+    display: block;
+    width: 100%;
+    z-index: 1;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: linear-gradient(135deg,  rgba(255,255,255,.3) 0%,rgba(255,255,255,.3) 40%,rgba(255,255,255,0) 40%,rgba(255,255,255,0) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  }
+}
+
+/*doc
+---
+title: ボックス
+name: box-radius
+category: box
+---
+
+
+
+```html_example
+
+<div class="box-radius">
+  <div class="text-unit">
+    <p>ダミーテキスト</p>
+  </div>
+</div>
+
+```
+
+*/
+
+.box-radius{
+  border:2px solid $brand-main-lighter;
+  padding: 1.8em 2em;
+  box-sizing: border-box;
+  border-radius:8px;
+  background: #fff;
+  @include max-media($screen-sm){
+    padding: 1em 1.2em;
+  }
+}

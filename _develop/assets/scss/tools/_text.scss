@@ -1,0 +1,28 @@
+/*--------------------------------------------------------------//
+// @ text align
+// ------------------------------------------------------------ */
+
+/* @ text state
+// ------------------------------------------------------------ */
+
+.text-center{
+  text-align: center;
+}
+.text-left{
+  text-align: left;
+}
+.text-right{
+  text-align: right;
+}
+
+.text-bold {
+  font-weight: bold !important;
+}
+
+.text-normal {
+  font-weight: normal !important;
+}
+
+.nowrap {
+  white-space: nowrap !important
+}

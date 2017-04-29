@@ -1,0 +1,666 @@
+/* ============================================================ //
+// @ module
+// ============================================================ */
+
+
+/*doc
+---
+title: ぱんくずナビ
+name: breadcrumb
+category: module
+---
+
+```html_example
+
+<nav class="breadcrumb">
+  <ul class="breadcrumb__body">
+    <li class="breadcrumb__item"><a href="/">ホーム</a></li>
+    <li class="breadcrumb__item"><a href="/">サンプルページ</a></li>
+  </ul>
+</nav>
+
+```
+
+*/
+
+.breadcrumb{
+  margin:5px auto;
+  &__body{
+    @include clearfix;
+    list-style: none;
+    margin:0 0 0 15px;
+    padding: 0;
+    @include max-media($screen-md){
+      margin-left: 0;
+    }
+  }
+  &__item{
+    float: left;
+    position: relative;
+    display: inline-block;
+    margin-right: .5em;
+  }
+  &__item:first-child:before{
+    display: none;
+  }
+  &__item:before{
+    display: inline-block;
+    content: '';
+    @include fa-icon();
+    margin-right: .5em;
+    color: $brand-main;
+    
+  }
+  
+  &__item a{
+    font-size:.866666667em;
+    color: $brand-main;
+    @include max-media($screen-sm){
+      font-size:.857142857em;
+    }
+    &:link,
+    &:active,
+    &:hover,
+    &:visited,
+    &:focus{
+      color: $brand-main;
+      text-decoration: underline;
+    }
+  }
+}
+
+/*doc
+---
+title: panel01
+name: panel01
+category: module
+---
+
+
+
+```html_example
+
+<div class="row">
+  <div class="col-md-4 col-sm-6 col-xs-6">
+    <article class="panel01 js-tile">
+      <figure class="panel01__thumb">
+        <img src="https://placehold.jp/220x150.png" alt="">
+      </figure>
+      <div class="panel01__content">
+        <p class="panel01-content__date">2017年00月00日</p>
+        <p class="panel01-content__label bg-primary">姪浜店</p>
+        <p class="panel01-content__lead">ダミーテキストです、ご了承ください</p>
+      </div>
+      <div class="btn-group panel01__btn-group">
+        <a href="#" class="btn btn02 btn02--primary panel01__btn-item">ボタン</a>
+      </div>
+    </article>
+  </div>
+  <div class="col-md-4 col-sm-6 col-xs-6">
+    <article class="panel01 js-tile">
+      <figure class="panel01__thumb">
+        <img src="https://placehold.jp/220x150.png" alt="">
+      </figure>
+      <div class="panel01__content">
+        <p class="panel01-content__date">2017年00月00日</p>
+        <p class="panel01-content__label bg-primary">姪浜店</p>
+        <p class="panel01-content__lead">ダミーテキストです、ご了承ください。ダミーテキストです、ご了承ください。</p>
+      </div>
+      <div class="btn-group panel01__btn-group">
+        <a href="#" class="btn btn02 btn02--primary panel01__btn-item">ボタン</a>
+      </div>
+    </article>
+  </div>
+  <div class="col-md-4 col-sm-6 col-xs-6">
+    <article class="panel01 js-tile">
+      <figure class="panel01__thumb">
+        <img src="https://placehold.jp/220x150.png" alt="">
+      </figure>
+      <div class="panel01__content">
+        <p class="panel01-content__date">2017年00月00日</p>
+        <p class="panel01-content__label bg-primary">姪浜店</p>
+        <p class="panel01-content__lead">ダミーテキストです、ご了承ください</p>
+      </div>
+      <div class="btn-group panel01__btn-group">
+        <a href="#" class="btn btn02 btn02--primary panel01__btn-item">ボタン</a>
+      </div>
+    </article>
+  </div>
+</div>
+
+```
+
+<p> js-tile クラスを付与すると、高さ保持のjsが聴きます</p>
+基本的に グリッド で括っても、括らなくても大丈夫です。
+単体のモジュールとしても使用できます。
+
+*/
+
+
+.panel01{
+  position: relative;
+  border:1px solid #ccc;
+  border-radius: 5px;
+  padding:  .5em .5em 4em .5em;
+  margin-bottom: 20px;
+  &__thumb{
+    width: 100%;
+    margin-bottom:1em;
+  }
+  &__thumb img{
+    width: 100%;
+    vertical-align: bottom;
+  }
+  &__content{
+    padding:0 5px;
+  }
+  &__btn-group{
+    position: absolute;
+    bottom: -10px;
+    left:50%;
+    transform: translate(-50%, 0%);
+    font-size: .866666667em;
+    margin-left: 0;
+    margin-right: 0;
+  }
+  &__btn-item{
+    padding-top: .4em;
+    padding-bottom: .4em;
+  }
+  
+}
+
+.panel01-content{
+  &__date{
+    font-size:.866666667em;
+    line-height: 1;
+    margin-bottom: .1em;
+  }
+  &__label{
+    display: inline-block;
+    font-size:.8em;
+    line-height: 1;
+    margin-bottom: 0;
+    background: #ccc;
+    padding:.3em .5em;
+    color: #fff;
+    font-family:$font-family-sawarabi;
+  }
+  &__lead{
+    margin-top: .8em;
+    margin-bottom: 0;
+    font-size:.933333333;
+    line-height: 1.2em;
+  }
+}
+
+/*doc
+---
+title: ページネーション
+name: pagenation
+category: module
+---
+
+
+```html_example
+
+<nav class="pagination-container" aria-label="...">
+  <ul class="pagination">
+    <li class="page-item disabled">
+      <a class="page-link" href="#"><i class="fa fa-angle-double-left"></i></a>
+    </li>
+    <li class="page-item disabled">
+      <a class="page-link" href="#" tabindex="-1"><i class="fa fa-angle-left"></i></a>
+    </li>
+    <li class="page-item"><a class="page-link" href="#">1</a></li>
+    <li class="page-item active">
+      <a class="page-link" href="#">2 <span class="sr-only">(current)</span></a>
+    </li>
+    <li class="page-item"><a class="page-link" href="#">3</a></li>
+    <li class="page-item"><a class="page-link" href="#">4</a></li>
+    <li class="page-item"><a class="page-link" href="#">5</a></li>
+    <li class="page-item">
+      <a class="page-link" href="#"><i class="fa fa-angle-right"></i></a>
+    </li>
+    <li class="page-item">
+      <a class="page-link" href="#"><i class="fa fa-angle-double-right"></i></a>
+    </li>
+  </ul>
+</nav>
+
+```
+
+*/
+
+
+.pagination-container{
+  text-align: center;
+}
+
+$pagination-active-bg : $brand-main;
+$pagination-active-border: $brand-main;
+$pagination-color: $brand-main;
+$pagination-hover-color: $brand-main;
+
+.pagination {
+  display: inline-block;
+  padding-left: 0;
+  margin: $line-height-computed 0;
+  border-radius: $border-radius-base;
+  
+  > li {
+    > a,
+    > span {
+      color: $pagination-color;
+      background-color: $pagination-bg;
+      border: 1px solid $pagination-border;
+    }
+  }
+  > li > a,
+  > li > span {
+    &:hover,
+    &:focus {
+      
+      color: $pagination-hover-color;
+      background-color: $pagination-hover-bg;
+      border-color: $pagination-hover-border;
+    }
+  }
+  > .active > a,
+  > .active > span {
+    &,
+    &:hover,
+    &:focus {
+      color: $pagination-active-color;
+      background-color: $pagination-active-bg;
+      border-color: $pagination-active-border;
+    }
+  }
+}
+
+/*doc
+---
+title: 絞込フォーム
+name: selection-form
+category: module
+---
+
+```html_example
+
+<form>
+  <div class="container">
+    <div class="row">
+      <div class="form-group col-md-8 col-md-offset-4 col-sm-12">
+        <div class="row">
+          <div class="col-xs-4">
+            <select class="form-control">
+              <option>絞込</option>
+              <option>2</option>
+              <option>3</option>
+              <option>4</option>
+              <option>5</option>
+            </select>
+          </div>
+          <div class="col-xs-4">
+            <select class="form-control col-xs-4">
+              <option>絞込</option>
+              <option>2</option>
+              <option>3</option>
+              <option>4</option>
+              <option>5</option>
+            </select>
+          </div>
+          <div class="col-xs-4">
+            <button type="submit" class="btn btn01 btn01--info btn-block">検索</button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</form>
+
+```
+Bootstrapのformコンポーネントとグリッドシステムのみで作成しています。
+[参考] https://v4-alpha.getbootstrap.com/components/forms/
+*/
+
+
+/*doc
+---
+title: メディアモジュール
+name: media01
+category: module
+---
+
+
+
+```html_example
+
+<div class="row">
+  <div class="col-xs-12 col-sm-6">
+    <!--モジュール-->
+    <div class="media01">
+      <figure class="media01__thumb"><img src="https://placehold.jp/150x150.png" alt=""></figure>
+      <div class="media01__content">
+        <div class="text-unit">
+          <p>ダミーテキストです。ダミーテキストです。ダミーテキストです。ダミーテキストです。ダミーテキストです。</p>
+          <p><a href="" class="text-link--under"><i class="fa fa-angle-right"></i> 詳しく見る</a></p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-xs-12 col-sm-6">
+    <!--モジュール-->
+    <div class="media01">
+      <figure class="media01__thumb"><img src="https://placehold.jp/150x150.png" alt=""></figure>
+      <div class="media01__content">
+        <div class="text-unit">
+          <p>ダミーテキストです。ダミーテキストです。ダミーテキストです。ダミーテキストです。ダミーテキストです。</p>
+          <p><a href="" class="text-link--under"><i class="fa fa-angle-right"></i> 詳しく見る</a></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row">
+<div class="col-xs-12 col-sm-4">
+    <!--モジュール-->
+    <div class="media01">
+      <figure class="media01__thumb"><img src="https://placehold.jp/150x150.png" alt=""></figure>
+      <div class="media01__content">
+        <div class="text-unit">
+          <p>ダミーテキスト</p>
+          <p><a href="" class="text-link--under"><i class="fa fa-angle-right"></i> 詳しく見る</a></p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-xs-12 col-sm-4">
+    <!--モジュール-->
+    <div class="media01">
+      <figure class="media01__thumb"><img src="https://placehold.jp/150x150.png" alt=""></figure>
+      <div class="media01__content">
+        <div class="text-unit">
+          <p>ダミーテキスト</p>
+          <p><a href="" class="text-link--under"><i class="fa fa-angle-right"></i> 詳しく見る</a></p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-xs-12 col-sm-4">
+    <!--モジュール-->
+    <div class="media01">
+      <figure class="media01__thumb"><img src="https://placehold.jp/150x150.png" alt=""></figure>
+      <div class="media01__content">
+        <div class="text-unit">
+          <p>ダミーテキスト</p>
+          <p><a href="" class="text-link--under"><i class="fa fa-angle-right"></i> 詳しく見る</a></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+基本的に グリッド で括っても、括らなくても大丈夫です。
+単体のモジュールとしても使用できます。
+
+```
+
+*/
+
+.media01{
+  display: flex;
+  -js-display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  margin-bottom: 1em;
+  &__thumb{
+    width:30%;
+  }
+  &__thumb img{
+    width: 100%;
+    vertical-align: bottom;
+  }
+  &__content{
+    width:66%;
+    padding:.3em 0;
+    font-size:.866666667em;
+  }
+}
+
+/*doc
+---
+title: ボタン
+name: btn-new
+category: btn-new
+---
+
+<h3 class="sg-pattern-title"> sectionTitle </h3>
+
+```html_example
+
+<section class="section-unit">
+    <div class="tab-menu01 row">
+      <div class="col-xs-6 js-tile">
+        <a href="javascript:void(0)" class="tab-menu01__tab js-tab-menu-trigger" rel="tab1">無料宅配<br class="visible--sm">キットコース</span></a>
+      </div>
+      <div class="col-xs-6 js-tile">
+        <a href="javascript:void(0)" class="tab-menu01__tab js-tab-menu-trigger" rel="tab2">自分で<br class="visible--sm">発送コース</span></a>
+      </div>
+    </div>
+    <div>
+      <a href="" rel="tab1"></a>
+      <div id="tab1" class="js-tab-menu-content">
+        コンテンツ
+      </div>
+      <a href="" rel="tab2"></a>
+      <div id="tab2" class="js-tab-menu-content">
+        コンテンツ
+      </div>
+    </div>
+  </section>
+
+```
+
+*/
+
+/*doc
+---
+title: タブ・アコーディオン
+name: tab-accordion
+category: module
+---
+
+
+```html_example
+
+<div class="tab-menu01 row">
+  <div class="col-xs-6 js-tab-menu">
+    <a href="javascript:void(0)" class="tab-menu01__tab js-tab-menu-trigger" rel="tab1">無料宅配<br class="visible--sm">キットコース</span>
+    </a>
+  </div>
+  <div class="col-xs-6 js-tab-menu">
+    <a href="javascript:void(0)" class="tab-menu01__tab js-tab-menu-trigger" rel="tab2">自分で<br class="visible--sm">発送コース</span>
+    </a>
+  </div>
+</div>
+<div>
+  <a href="" rel="tab1"></a>
+  <div id="tab1" class="js-tab-menu-content">
+    <article class="box-radius tab-menu-content__box js-accordion">
+      <header class="tab-menu-content__header">
+        <h1 class="heading05 tab-menu-content__heading">STEP1 ダミータイトル</h1>
+        <div class="js-accordion-trigger tab-menu-content__trigger"><i class="fa fa-plus-circle"></i></div>
+      </header>
+
+      <div class="row tab-menu-content__unit js-accordion-content">
+        <div class="col-xs-12">
+          <figure class="grid-img--right"><img src="https://placehold.jp/250x150.png" alt=""></figure>
+          <div class="text-unit">
+            <p>あのイーハトーヴォのすきとおった風、夏でも底に冷たさをもつ青いそら、うつくしい森で飾られたモリーオ市、郊外のぎらぎらひかる草の波。
+              またそのなかでいっしょになったたくさんのひとたち、ファゼーロとロザーロ、羊飼のミーロや、顔の赤いこどもたち、地主のテーモ、山猫博士のボーガント・デストゥパーゴなど、いまこの暗い巨きな石の建物のなかで考えていると、みんなむかし風のなつかしい青い幻燈のように思われます。では、わたくしはいつかの小さなみだしをつけながら、しずかにあの年のイーハトーヴォの五月から十月までを書きつけましょう。</p>
+          </div>
+        </div>
+      </div>
+    </article>
+    <article class="box-radius tab-menu-content__box js-accordion">
+      <header class="tab-menu-content__header">
+        <h1 class="heading05 tab-menu-content__heading">STEP1 ダミータイトル</h1>
+        <div class="js-accordion-trigger tab-menu-content__trigger"><i class="fa fa-plus-circle"></i></div>
+      </header>
+      <div class="row tab-menu-content__unit js-accordion-content">
+        <div class="col-xs-12">
+          <figure class="grid-img--right"><img src="https://placehold.jp/250x150.png" alt=""></figure>
+          <div class="text-unit">
+            <p>あのイーハトーヴォのすきとおった風、夏でも底に冷たさをもつ青いそら、うつくしい森で飾られたモリーオ市、郊外のぎらぎらひかる草の波。
+              またそのなかでいっしょになったたくさんのひとたち、ファゼーロとロザーロ、羊飼のミーロや、顔の赤いこどもたち、地主のテーモ、山猫博士のボーガント・デストゥパーゴなど、いまこの暗い巨きな石の建物のなかで考えていると、みんなむかし風のなつかしい青い幻燈のように思われます。では、わたくしはいつかの小さなみだしをつけながら、しずかにあの年のイーハトーヴォの五月から十月までを書きつけましょう。</p>
+          </div>
+        </div>
+      </div>
+    </article>
+    <article class="box-radius tab-menu-content__box js-accordion">
+      <header class="tab-menu-content__header">
+        <h1 class="heading05 tab-menu-content__heading">STEP1 ダミータイトル</h1>
+        <div class="js-accordion-trigger tab-menu-content__trigger"><i class="fa fa-plus-circle"></i></div>
+      </header>
+      <div class="row tab-menu-content__unit js-accordion-content">
+        <div class="col-xs-12">
+          <figure class="grid-img--right"><img src="https://placehold.jp/250x150.png" alt=""></figure>
+          <div class="text-unit">
+            <p>あのイーハトーヴォのすきとおった風、夏でも底に冷たさをもつ青いそら、うつくしい森で飾られたモリーオ市、郊外のぎらぎらひかる草の波。
+              またそのなかでいっしょになったたくさんのひとたち、ファゼーロとロザーロ、羊飼のミーロや、顔の赤いこどもたち、地主のテーモ、山猫博士のボーガント・デストゥパーゴなど、いまこの暗い巨きな石の建物のなかで考えていると、みんなむかし風のなつかしい青い幻燈のように思われます。では、わたくしはいつかの小さなみだしをつけながら、しずかにあの年のイーハトーヴォの五月から十月までを書きつけましょう。</p>
+          </div>
+        </div>
+      </div>
+    </article>
+  </div>
+  <a href="" rel="tab2"></a>
+  <div id="tab2" class="js-tab-menu-content">
+    <article class="box-radius tab-menu-content__box js-accordion">
+      <header class="tab-menu-content__header">
+        <h1 class="heading05 tab-menu-content__heading">STEP1 ダミータイトル</h1>
+        <div class="js-accordion-trigger tab-menu-content__trigger"><i class="fa fa-plus-circle"></i></div>
+      </header>
+
+      <div class="row tab-menu-content__unit js-accordion-content">
+        <div class="col-xs-12">
+          <figure class="grid-img--right"><img src="https://placehold.jp/250x150.png" alt=""></figure>
+          <div class="text-unit">
+            <p>あのイーハトーヴォのすきとおった風、夏でも底に冷たさをもつ青いそら、うつくしい森で飾られたモリーオ市、郊外のぎらぎらひかる草の波。
+              またそのなかでいっしょになったたくさんのひとたち、ファゼーロとロザーロ、羊飼のミーロや、顔の赤いこどもたち、地主のテーモ、山猫博士のボーガント・デストゥパーゴなど、いまこの暗い巨きな石の建物のなかで考えていると、みんなむかし風のなつかしい青い幻燈のように思われます。では、わたくしはいつかの小さなみだしをつけながら、しずかにあの年のイーハトーヴォの五月から十月までを書きつけましょう。</p>
+          </div>
+        </div>
+      </div>
+    </article>
+  </div>
+</div>
+
+```
+
+*/
+
+.tab-menu01{
+  display: flex;
+  -js-display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  border-bottom:2px solid $brand-main-lighter;
+  margin-bottom: 2em;
+  &__tab{
+    display: block;
+    width: 100%;
+    height: 100%;
+    border-radius:8px 8px 0  0;
+    background: $gray-light;
+    padding: .8em .5em;
+    text-align: center;
+    line-height:1.3;
+    font-size:1.133333333em;
+    font-family:$font-family-sawarabi;
+    @include link-hover();
+    @include max-media($screen-md){
+      font-size: 1em;
+    }
+    @include max-media($screen-sm){
+      font-size: .928571429em;
+    }
+    &:link,
+    &:active,
+    &:hover,
+    &:visited,
+    &:focus{
+      color: #fff;
+      text-decoration: none;
+    }
+    &.is-active{background: $brand-main-lighter;}
+  }
+}
+
+
+
+
+.tab-menu-content__box{
+  position: relative;
+  margin-top: 100px;
+  @include max-media($screen-md){
+    margin-top: 85px;
+  }
+  @include max-media($screen-sm){
+    margin-top: 55px;
+  }
+  &:first-child{
+    margin-top: 0;
+  }
+  &:before{
+    @include fa-icon();
+    content: '';
+    position: absolute;
+    bottom: -55px;
+    left:50%;
+    line-height: 0;
+    transform: translate(-50%, 0%);
+    font-size:4em;
+    color: $brand-main-lighter;
+    @include max-media($screen-md){
+      bottom: -45px;
+    }
+    @include max-media($screen-sm){
+      font-size: 2em;
+      bottom: -30px;
+    }
+  }
+  &:last-child:before{
+    display: none;
+  }
+}
+
+.tab-menu-content {
+  &__heading {
+    margin: 0;
+  }
+  &__unit{
+    margin-top:1.5em;
+  }
+  &__header{
+    position: relative;
+  }
+  &__trigger{
+    position: absolute;
+    top:50%;
+    right:0;
+    transform: translate(0%, -50%);
+    font-size:30px;
+    line-height: 0;
+    color: $brand-main;
+    @include max-media($screen-sm){
+      font-size: 26px;
+    }
+  }
+  &__trigger.is-active .fa:before{
+    @include fa-icon();
+    content: '';
+    
+    
+  }
+}

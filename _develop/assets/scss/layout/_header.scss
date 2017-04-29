@@ -1,0 +1,167 @@
+  /* ============================================================ //
+  // @ header
+  // ============================================================ */
+  .header {
+    
+    margin-top: 10px;
+    border-top: 1px solid #bbbbbb;
+    background: #fff;
+    padding-top: 10px;
+    
+    @include max-media($screen-md) {
+      position: fixed;
+      z-index: 99999;
+      top: 0;
+      left: 0;
+      margin-top: 0;
+      border-top: none;
+      padding-bottom: 10px;
+      box-shadow:0px 1px 5px 0px #cccccc;
+      -moz-box-shadow:0px 1px 5px 0px #cccccc;
+      -webkit-box-shadow:0px 1px 5px 0px #cccccc;
+  
+    }
+  }
+  
+  .h {
+    &-item-group {
+      display: flex;
+      -js-display: flex;
+      flex-flow: row wrap;
+      justify-content: space-between;
+      @include max-media($screen-md) {
+        align-items: center;
+      }
+    }
+  }
+  
+  .h-brand {
+    &__primary {
+      display: flex;
+      -js-display: flex;
+      flex-flow: row wrap;
+      align-items: flex-end;
+    }
+    &__primary a {
+      display: block;
+      line-height: 1;
+      @include link-hover();
+    }
+    &__secondary {
+      margin-bottom: 0;
+      line-height: 22px;
+      text-align: center;
+      width: 217px;
+      font-size: 14px;
+      font-family: $font-family-sawarabi;
+      color: $brand-main;
+      @include max-media($screen-md) {
+        display: none;
+      }
+    }
+  }
+  
+  .h-logo {
+    width: 217px;
+    @include max-media($screen-md) {
+      width: 110px;
+    }
+  }
+  
+  .h-sub-logo {
+    width: 103px;
+    margin-left: 10px;
+    @include max-media($screen-md) {
+      width: 74px;
+    }
+    img {
+      vertical-align: bottom;
+    }
+  }
+  
+  .h-tel {
+    @include max-media($screen-md) {
+      display: none;
+    }
+    &__num {
+      width: 187px;
+      vertical-align: bottom;
+    }
+  }
+  
+  // @ hiraku.js
+  // ------------------------------------------------------------
+  
+  .h-toggle-group {
+    display: none;
+    @include max-media($screen-md) {
+      
+      display: flex;
+      -js-display: flex;
+      flex-flow: row wrap;
+      justify-content: space-between;
+      .h-toggle-tel {
+        margin-right: 6px;
+      }
+    }
+  }
+  
+  .h-toggle-tel {
+    display: none;
+    @include max-media($screen-md) {
+      
+      a {
+        display: block;
+        color: $toggle-color;
+        &:link,
+        &:active,
+        &:hover,
+        &:visited,
+        &:focus {
+          color: $toggle-color;
+        }
+      }
+      &__icon {
+        font-size: 24px;
+        line-height: 40px;
+      }
+    }
+  }
+  
+  .navbar-toggle {
+    display: none;
+    @include max-media($screen-md) {
+      padding: 0;
+      display: flex;
+      -js-display: flex;
+      flex-flow: row wrap;
+      align-items: center;
+      justify-content: center;
+      margin: 0;
+      background: #fff;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      height: 40px;
+      width: 40px;
+      box-sizing: border-box;
+    }
+    
+  }
+  
+  @include min-media($screen-md){
+    .navbar-toggle {
+      display: none;
+    }
+    
+    .js-hiraku-offcanvas {
+      display: block;
+      position: static;
+      background: none;
+    }
+    
+    .js-hiraku-offcanvas .js-hiraku-offcanvas-sidebar {
+      position: static;
+      margin-left: 0;
+      width: auto;
+    }
+  }

@@ -1,0 +1,90 @@
+@mixin transition-delay($val:$hover-transition) {
+	transition: all $val ease;
+}
+
+@mixin link-hover($val:$hover-transition) {
+	@include transition($hover-transition);
+	&:hover{
+		opacity: $hover-opacity;
+	}
+}
+
+@mixin perwidth( $parentPxWidth, $pxWidth ){
+	width: (( $pxWidth / $parentPxWidth ) * 10000% ) / 100;
+}
+
+@mixin wdiv( $width ){
+	width: ( $width / 2 );
+}
+@mixin hdiv( $heght ){
+	height: ( $heght / 2 );
+}
+
+// mytodo:本体に吸収させる
+//
+// bg-with-size-2x
+// 背景を画像のサイズと合わせて指定する（retina画像前提）
+//
+@mixin bgimg( $image-url ){
+	$image-width: image-width( $image-url );
+	$image-height: image-height( $image-url );
+	
+	width: $image-width;
+	height: $image-height;
+	background-image: image-url( $image-url );
+	background-size: $image-width auto;
+}
+@mixin bgimgx2( $image-url ){
+	$image-width: image-width( $image-url ) / 2;
+	$image-height: image-height( $image-url ) / 2;
+	
+	width: $image-width;
+	height: $image-height;
+	background-image: image-url( $image-url );
+	background-size: $image-width auto;
+}
+
+
+// @ media
+// ------------------------------------------------------------
+
+
+//$screen-xs:                  320px;
+//$screen-xs-min:              $screen-xs;
+//$screen-phone:               $screen-xs-min;
+//$screen-sm:                  414px;
+//$screen-sm-min:              $screen-sm;
+//$screen-tablet:              $screen-sm-min;
+//
+//$screen-md:                  768px;
+//$screen-md-min:              $screen-md;
+//$screen-desktop:             $screen-md-min;
+//
+//$screen-lg:                  1200px;
+//$screen-lg-min:              $screen-lg;
+//
+//$screen-lg-desktop:          $screen-lg-min;
+//
+//
+//$screen-xs-max:              ($screen-sm-min - 1);
+//$screen-sm-max:              ($screen-md-min - 1);
+//$screen-md-max:              ($screen-lg-min - 1);
+
+
+@mixin max-media($break-point) {
+	@media screen and (max-width: $break-point) {
+		@content;
+	}
+}
+
+@mixin min-media($break-point) {
+	@media screen and (min-width: $break-point) {
+		@content;
+	}
+}
+
+@mixin media($break-point-min, $break-point-max) {
+	@media screen and (min-width: $break-point-min) and (max-width: $break-point-max) {
+		@content;
+	}
+}

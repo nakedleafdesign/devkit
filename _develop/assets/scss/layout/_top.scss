@@ -1,0 +1,522 @@
+/* ============================================================ //
+// @ top.html
+// ============================================================ */
+
+
+/* @ section primary
+// ------------------------------------------------------------ */
+
+// 構造化
+
+.primary-block-group{
+  display: flex;
+  -js-display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+}
+
+.primary-block{
+  &__main{
+    @include perwidth(1000,750);
+    @include max-media($screen-md){
+      width: 100%;
+    }
+  }
+  &__side{
+    @include perwidth(1000,220);
+    @include max-media($screen-md){
+      width: 100%;
+      margin: 10px auto 60px;
+    }
+    @include max-media($screen-sm){
+      margin: 10px auto 35px;
+    }
+  }
+}
+
+
+/* @ primary panel
+// ------------------------------ */
+
+.primary-panel{
+  display: flex;
+  -js-display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  align-items: flex-start;
+  
+  &-item--col1{
+    @include perwidth(750,246);
+    @include max-media($screen-sm){
+      width: 100%;
+      margin-bottom:1%;
+    }
+  }
+  &-item--col2{
+    @include perwidth(750,498);
+    @include max-media($screen-sm){
+    width: 100%;
+    }
+  }
+  &__img{
+    display: block;
+    vertical-align: bottom;
+  }
+  &__img img{
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    vertical-align: bottom;
+  }
+}
+
+.primary-panel-child{
+  display: flex;
+  -js-display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+}
+.primary-panel-child-item{
+  @include perwidth(498,246);
+  margin-top:1.2048192%;
+  &:first-child,
+  &:nth-child(2){
+    margin-top: 0;
+  }
+}
+
+/* @ section guide01
+// ------------------------------------------------------------ */
+
+.guide01-grid-group{
+  display: flex;
+  -js-display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  align-items:flex-start;
+  @include max-media($screen-md){
+    justify-content:center;
+  }
+  
+  .grid{
+    @include perwidth(1000,320);
+    @include max-media($screen-md){
+      width:48%;
+      margin:0 1% 40px;
+    }
+    @include max-media($screen-5ls){
+      width: 100%;
+    }
+  }
+}
+
+/* @ sticky
+// ------------------------------ */
+
+.sticky01{
+  position: relative;
+  background: #ccc;
+  color: #fff;
+  padding:1em 1.714285714em;
+  font-family:$font-family-sawarabi;
+  &__lead{
+    margin-bottom: 0;
+    line-height:1.384615385;
+    font-size:.928571429em;
+    @include max-media($screen-md){
+      font-size:.857142857em;
+    }
+    @include max-media($screen-sm){
+      font-size: 1em;
+    }
+  }
+  &__head{
+    margin-bottom: 0;
+    line-height: 1.4;
+    font-size:1.785714286em;
+    @include max-media($screen-md){
+      font-size:1.466666667em;
+      margin-top: 6px;
+    }
+    @include max-media($screen-sm){
+      font-size:1.714285714em;
+    }
+  }
+  &--first{
+    background: #21afb1;
+  }
+  &--first:before{
+    display: block;
+    position: absolute;
+    bottom: -30px;
+    right: 20px;
+    content: '';
+    background: center center no-repeat;
+    @include bgimgx2('top/sticky01_img01.png');
+    background-size:contain;
+  }
+  &--second{
+    background: #f79c9c;
+  }
+  &--second:before{
+    display: block;
+    position: absolute;
+    bottom: -30px;
+    right: 10px;
+    content: '';
+    background: center center no-repeat;
+    @include bgimgx2('top/sticky01_img02.png');
+    background-size:contain;
+  }
+  &--thaad{
+    background: #d8bf13;
+  }
+  &--thaad:before{
+    display: block;
+    position: absolute;
+    bottom: -40px;
+    right: 5px;
+    content: '';
+    background: center center no-repeat;
+    @include bgimgx2('top/sticky01_img03.png');
+    background-size:contain;
+  }
+}
+
+/* @ section guide02
+// ------------------------------------------------------------ */
+
+.section-container.section-guide02{
+  @include max-media($screen-md){
+    margin-bottom: 10px;
+  }
+  @include max-media($screen-sm){
+    margin-bottom: 20px;
+  }
+}
+.guide02-grid-group{
+  display: flex;
+  -js-display: flex;
+  flex-flow: row-reverse wrap;
+  justify-content: space-between;
+  align-items: center;
+  .grid--primary{
+    padding-top: 40px;
+    @include perwidth(1000,540);
+    @include max-media($screen-sm){
+      width: 100%;
+    }
+  }
+  .grid--secondary{
+    @include perwidth(1000,427);
+    @include max-media($screen-sm){
+      width: 80%;
+      text-align: center;
+      margin: 0 auto;
+    }
+  }
+}
+
+.guide02-grid__img{
+  width: 100%;
+  vertical-align: bottom;
+  @include max-media($screen-sm){
+    padding-right: 14px;
+  }
+}
+.guide02-text-unit{
+  margin-bottom: 40px;
+  *:last-child{
+    margin-bottom: 0;
+  }
+}
+
+/* @ section line bnr
+// ------------------------------------------------------------ */
+
+.section-container.section-bnr{
+  @include max-media($screen-md){
+    margin-bottom: 40px;
+  }
+}
+
+.container-line-bnr{
+  a{
+    display: block;
+    @include link-hover();
+  }
+  img{
+    width: 100%;
+    max-width: 100%;
+  }
+}
+
+/* @ section contact
+// ------------------------------------------------------------ */
+
+.section-contact{
+  background: $brand-main;
+  padding:2.5em 0;
+  @include max-media($screen-sm){
+    padding-top: 1.5em;
+  }
+  &__inner{
+    @include perwidth(1000,710);
+    margin:0 auto;
+    @include max-media($screen-md){
+      width: 100%;
+    }
+  }
+}
+.contact-grid-group{
+  display: flex;
+  -js-display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  @include max-media($screen-sm){
+    margin-top: 40px;
+  }
+  .grid{
+    width: 50%;
+    padding-left: 40px;
+    @include max-media($screen-md){
+      max-width: 480px;
+      margin: 0 auto;
+      width: 100%;
+      padding-left: 0;
+      text-align: center;
+    }
+    @include max-media($screen-sm){
+      max-width:100%;
+    }
+  }
+  .grid:first-child{
+    border-right:1px solid #fff;
+    @include max-media($screen-md){
+      border-right:none;
+      border-bottom: 1px #fff solid;
+      padding-bottom: 30px;
+      margin-bottom: 30px;
+      border-right: none;
+    }
+    @include max-media($screen-sm){
+      padding-bottom: 20px;
+      margin-bottom: 20px;
+    }
+  }
+}
+
+.contact-grid {
+  &__tel-num {
+    img {
+      width: 280px;
+      max-width: 280px;
+    }
+  }
+  &__info{
+    margin-bottom: 0;
+    padding-top: .5em;
+    font-size: .928571429em;
+    color: #fff;
+  }
+  &__btn{
+    @include max-media($screen-md){
+      display: block;
+      max-width: 380px;
+      margin:0 auto;
+    }
+  }
+}
+
+/* @ section works
+// ------------------------------------------------------------ */
+
+.btn-group-works{
+  margin-top: 50px;
+}
+
+/* @ card01
+// ------------------------------ */
+
+.card01-group{
+  display: flex;
+  -js-display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  align-items: stretch;
+  @include max-media($screen-md){
+    justify-content: flex-start;
+  }
+  @include max-media($screen-sm){
+    justify-content: space-between;
+  }
+}
+
+.card01{
+  position: relative;
+  @include perwidth(1000,242);
+  border:1px solid #ccc;
+  border-radius:5px;
+  padding:1em 1em 2.5em 1em;
+  margin-bottom:1.2%;
+  @include max-media($screen-md){
+    width: 32%;
+    margin-right: 2%;
+    margin-bottom: 2%;
+    &:nth-child(3n){margin-right: 0;}
+  }
+  @include max-media($screen-sm){
+    width: 49%;
+    margin-bottom: 2%;
+    margin-right: 0;
+  }
+  
+  &:hover{
+    @include transition-delay();
+    box-shadow:3px 3px 0px 1px #ddd;
+  }
+  a{
+    display: block;
+    text-decoration: none;
+    color: $text-color;
+  }
+  &:link,
+  &:active,
+  &:hover,
+  &:visited,
+  &:focus{
+    text-decoration: none;
+    color: $text-color;
+  }
+  
+  &__img{
+    width: 210px;
+    height: 150px;
+    overflow: hidden;
+    margin-bottom: 1em;
+    @include max-media($screen-md){
+      width: 100%;
+      height: auto;
+      margin-bottom: 1.5em;
+    }
+    @include max-media($screen-sm){
+      margin-bottom: 1.5em;
+    }
+  }
+  &__img img{
+    vertical-align: middle;
+    width: 100%;
+    max-width: 100%;
+  }
+  
+  // @ content
+  // ------------------------------
+  
+  &__content{
+    padding-bottom:1em;
+  }
+  &-content__date{
+    line-height: 1;
+    font-size: .928571429em;
+    margin-bottom: .5em;
+    @include max-media($screen-md){
+      font-size:.8em;
+    }
+    @include max-media($screen-sm){
+      font-size:.714285714em;
+    }
+  }
+  &-content__ttl{
+    font-size: 1em;
+    padding-bottom: 1em;
+    font-weight: normal;
+    @include max-media($screen-md){
+      font-size:.933333333em;
+    }
+    @include max-media($screen-sm){
+      font-size:.928571429em;
+    }
+  }
+  
+  // @ foot
+  // ------------------------------
+  
+  &__foot{
+    position: absolute;
+    border-top:1px solid #eee;
+    width: 100%;
+    padding: 1em;
+    bottom: 0;
+    right: 0;
+    *:last-child{
+      margin-bottom: 0;
+    }
+  }
+  &-foot__price{
+    margin-bottom: 0;
+    line-height: 1;
+    text-align: right;
+    color: #cc0000;
+    @include max-media($screen-md){
+      font-size:.933333333em;
+    }
+    @include max-media($screen-sm){
+      font-size: .785714286em;
+    }
+  }
+  &-foot__price:before{
+    @include fa-icon();
+    content: "";
+    padding-right: .3em;
+  }
+}
+
+
+/* @ section store
+// ------------------------------------------------------------ */
+
+.store-grid-group{
+  display: flex;
+  -js-display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  padding:0 20px;
+  .grid{
+    @include perwidth(960,460);
+    @include max-media($screen-sm){
+      width: 100%;
+      margin-top: 40px;
+      border-top:solid 1px #ccc;
+      padding-top: 30px;
+      &:first-child{
+        border-top:none;
+        margin-top: 0;
+        padding-top: 0;
+      }
+    }
+    
+  }
+}
+
+.store-grid{
+  &__heading{
+    margin-bottom:.7em;
+  }
+  &__img img{
+    width: 100%;
+    max-width: 100%;
+  }
+  &__text-unit{
+    padding: .5em;
+    margin-bottom: 1em;
+    *:last-child{margin-bottom: 0;}
+  }
+}
+
+
+
+
+
+
+
+
