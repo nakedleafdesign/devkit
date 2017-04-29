@@ -119,22 +119,22 @@ gulp.task('js',function(){
     gulp.src(srcDir + assetsDir + 'js/form/lib/*.js')
         .pipe($.concat('lib.js'))
         .pipe($.uglify())
-        .pipe(gulp.dest('../build/assets/js/form/'))
+        .pipe(gulp.dest('../assets/js/form/'))
     gulp.src(srcDir + assetsDir + 'js/form/*.js')
         .pipe($.concat('form.js'))
-        .pipe(gulp.dest('../build/assets/js/form/'))
+        .pipe(gulp.dest('../assets/js/form/'))
     // vender
     gulp.src(srcDir + assetsDir + 'js/vender/*.js')
         .pipe($.concat('vender.js'))
         .pipe($.uglify())
-        .pipe(gulp.dest('../build/assets/js/'))
+        .pipe(gulp.dest('../assets/js/'))
     // jquery    
     gulp.src(srcDir + assetsDir + 'js/_jquery.js')
         .pipe($.concat('jquery.js'))
         .pipe($.uglify())
-        .pipe(gulp.dest('../build/assets/js/'))
+        .pipe(gulp.dest('../assets/js/'))
     gulp.src( srcDir + assetsDir + 'js/!(_)*.js') //パーシャルを除外
-        .pipe(gulp.dest('../build/assets/js/'))
+        .pipe(gulp.dest('../assets/js/'))
 });
 //    gulp.src([srcDir + assetsDie + 'js/*.js','!' + srcDir + assetsDie + 'js/**/_*.js']) //パーシャルを除外
 
