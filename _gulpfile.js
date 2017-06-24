@@ -33,19 +33,18 @@ config = {
   "path": {
     "sharedSource" : "../",
     "source": "./",
-    "dist": "../dist/",
-    "ejs": "ejs",
+    "dist": "./",
+    // "ejs": "ejs",
     "sass": "/assets/scss",
-    "css": "/assets/css",
-    "img": "/assets/img",
-    "svg": "/assets/svg",
-    "html": "html",
-    "js": "/assets/js",
-    "file": "/assets/file",
-    "fonts": "/assets/fonts",
-    "bower" : "../bower_components/",
-    "dummy" : "/assets/dummy",
-    "node" : "node_modules/",
+    "css": "/assets/css"
+    // "img": "/assets/img",
+    // "svg": "/assets/svg",
+    // "html": "html",
+    // "js": "/assets/js",
+    // "file": "/assets/file",
+    // "fonts": "/assets/fonts",
+    // "dummy" : "/assets/dummy",
+    // "node" : "node_modules/",
     // "docs": "/docs",
     // "dev": "/dev",
   }
@@ -87,12 +86,12 @@ gulp.task('scss', function(){
 // Hologram
 // ------------------------------------------------------------
 
-// 参照、出力先は ./hologram/config.yml にて設定
-
-gulp.task('hologram', function() {
-    return gulp.src('./hologram/config.yml')
-        .pipe($.hologram());
-});
+// // 参照、出力先は ./hologram/config.yml にて設定
+//
+// gulp.task('hologram', function() {
+//     return gulp.src('./hologram/config.yml')
+//         .pipe($.hologram());
+// });
 
 
 //--------------------------------[
@@ -123,32 +122,32 @@ gulp.task('hologram', function() {
 // @ js結合・圧縮
 //========================================================================
 
-gulp.task('js',function(){
-
-  var distDir = config.path.dist + config.path.js;
-
-    // jquery
-    gulp.src(config.path.source + config.path.node + 'jquery/dist/jquery.js')
-        .pipe($.uglify())
-        .pipe(gulp.dest(distDir));
-
-    // form.js
-    gulp.src([config.path.source + config.path.js + '/form/lib/*.js',config.path.source + config.path.js + '/form.js'])
-        .pipe($.concat('form.js'))
-        .pipe($.uglify())
-        .pipe(gulp.dest(distDir));
-
-    //vender
-    gulp.src(config.path.source + config.path.node + 'flexibility/flexibility.js')
-        .pipe($.concat('vender.js'))
-        .pipe($.uglify())
-        .pipe(gulp.dest(distDir));
-
-    //通常
-    gulp.src([config.path.source + config.path.js + '/!(_)*.js','!' + config.path.source + config.path.js + '/lib/*.js']) //パーシャルを除外
-        .pipe($.uglify())
-        .pipe(gulp.dest(distDir))
-});
+// gulp.task('js',function(){
+//
+//   var distDir = config.path.dist + config.path.js;
+//
+//     // jquery
+//     gulp.src(config.path.source + config.path.node + 'jquery/dist/jquery.js')
+//         .pipe($.uglify())
+//         .pipe(gulp.dest(distDir));
+//
+//     // form.js
+//     gulp.src([config.path.source + config.path.js + '/form/lib/*.js',config.path.source + config.path.js + '/form.js'])
+//         .pipe($.concat('form.js'))
+//         .pipe($.uglify())
+//         .pipe(gulp.dest(distDir));
+//
+//     //vender
+//     gulp.src(config.path.source + config.path.node + 'flexibility/flexibility.js')
+//         .pipe($.concat('vender.js'))
+//         .pipe($.uglify())
+//         .pipe(gulp.dest(distDir));
+//
+//     //通常
+//     gulp.src([config.path.source + config.path.js + '/!(_)*.js','!' + config.path.source + config.path.js + '/lib/*.js']) //パーシャルを除外
+//         .pipe($.uglify())
+//         .pipe(gulp.dest(distDir))
+// });
    // gulp.src([srcDir + assetsDie + 'js/*.js','!' + srcDir + assetsDie + 'js/**/_*.js']) //パーシャルを除外
 
 
@@ -156,63 +155,64 @@ gulp.task('js',function(){
 // @ $画像最適化
 //========================================================================
 
-gulp.task('imagemin', function(){
-
-  var distDir = config.path.dist + config.path.img;
-
-  gulp.src(config.path.source + config.path.img +  "/**/*.jpg")
-      .pipe($.imagemin())
-      .pipe(gulp.dest(distDir));
-  gulp.src(config.path.source + config.path.img +  "/**/*.png")
-      .pipe($.imagemin())
-      .pipe(gulp.dest(distDir));
-});
+// gulp.task('imagemin', function(){
+//
+//   var distDir = config.path.dist + config.path.img;
+//
+//   gulp.src(config.path.source + config.path.img +  "/**/*.jpg")
+//       .pipe($.imagemin())
+//       .pipe(gulp.dest(distDir));
+//   gulp.src(config.path.source + config.path.img +  "/**/*.png")
+//       .pipe($.imagemin())
+//       .pipe(gulp.dest(distDir));
+// });
 
 
 //========================================================================
 // @ $copy
 //========================================================================
 
-gulp.task('html',function () {
-  var distDir = config.path.dist;
-
-  //html
-  gulp.src(config.path.source + config.path.html + '*')
-      .pipe(gulp.dest(distDir))
-      .pipe(browserSync.stream());
-
-});
-
-
-gulp.task('copy', function() {
-
-  var distDir = config.path.dist;
-  
-    //img
-    gulp.src(config.path.source + config.path.img + '/**/*')
-        .pipe(gulp.dest(distDir + config.path.img))
-        .pipe(browserSync.stream());
-
-    //fonts
-    gulp.src(config.path.source + config.path.fonts + '/**/*')
-        .pipe(gulp.dest(distDir + config.path.fonts))
-        .pipe(browserSync.stream());
-
-    //js library
-    gulp.src(config.path.source + config.path.js + '/lib/**/*')
-        .pipe(gulp.dest(distDir + config.path.js + '/lib/'))
-        .pipe(browserSync.stream());
-
-    //svg
-    gulp.src(config.path.source + config.path.svg + '/**/*')
-        .pipe(gulp.dest(distDir + config.path.svg))
-        .pipe(browserSync.stream());
-
-    //file
-    gulp.src(config.path.source + config.path.file + '/**/*')
-        .pipe(gulp.dest(distDir + config.path.file))
-        .pipe(browserSync.stream());
-});
+// gulp.task('html',function () {
+//   var distDir = config.path.dist;
+//
+//   //html
+//   gulp.src(config.path.source + config.path.html + '*')
+//       .pipe(gulp.dest(distDir))
+//       .pipe(browserSync.stream());
+//
+// });
+//
+//
+// gulp.task('copy', function() {
+//
+//   var distDir = config.path.dist;
+//
+//
+//     //img
+//     gulp.src(config.path.source + config.path.img + '/**/*')
+//         .pipe(gulp.dest(distDir + config.path.img))
+//         .pipe(browserSync.stream());
+//
+//     //fonts
+//     gulp.src(config.path.source + config.path.fonts + '/**/*')
+//         .pipe(gulp.dest(distDir + config.path.fonts))
+//         .pipe(browserSync.stream());
+//
+//     //js library
+//     gulp.src(config.path.source + config.path.js + '/lib/**/*')
+//         .pipe(gulp.dest(distDir + config.path.js + '/lib/'))
+//         .pipe(browserSync.stream());
+//
+//     //svg
+//     gulp.src(config.path.source + config.path.svg + '/**/*')
+//         .pipe(gulp.dest(distDir + config.path.svg))
+//         .pipe(browserSync.stream());
+//
+//     //file
+//     gulp.src(config.path.source + config.path.file + '/**/*')
+//         .pipe(gulp.dest(distDir + config.path.file))
+//         .pipe(browserSync.stream());
+// });
 
 //========================================================================
 // @ $browser-sync
@@ -238,22 +238,22 @@ gulp.task('bs-reload', function () {
 //========================================================================
 // ejs
 //========================================================================
-var ejs = require("gulp-ejs");
-
-    var distDir = config.path.dist;
-    gulp.task("ejs", function () {
-      gulp.src([config.path.source + config.path.ejs + "/**/*.ejs",config.path.source + config.path.ejs + '!' + "/**/_*.ejs"])
-          .pipe($.plumber())
-          .pipe($.ejs())
-          .pipe($.rename({extname: '.html'}))
-          .pipe(gulp.dest(distDir))
-});
+// var ejs = require("gulp-ejs");
+//
+//     var distDir = config.path.dist;
+//     gulp.task("ejs", function () {
+//       gulp.src([config.path.source + config.path.ejs + "/**/*.ejs",config.path.source + config.path.ejs + '!' + "/**/_*.ejs"])
+//           .pipe($.plumber())
+//           .pipe($.ejs())
+//           .pipe($.rename({extname: '.html'}))
+//           .pipe(gulp.dest(distDir))
+// });
 
 
 //========================================================================
 // del : buildで使用
 //========================================================================
-gulp.task('clean', del.bind(null, ['../dist'],{ force:true }));
+// gulp.task('clean', del.bind(null, ['../dist'],{ force:true }));
 
 
 // gulp.task('clean', function () {
@@ -270,9 +270,9 @@ gulp.task('clean', del.bind(null, ['../dist'],{ force:true }));
 gulp.task('watch', function () {
 
     gulp.watch(config.path.source + config.path.sass + '/**/*.scss', ['scss','hologram','bs-reload']);
-    gulp.watch(config.path.source + config.path.js + '/**/*.js', ['js','bs-reload']);
-    gulp.watch(config.path.source + config.path.html + '/**/*.html', ['html','bs-reload']);
-    gulp.watch(config.path.source + config.path.ejs + '/**/*.*', ['ejs','bs-reload']);
+    // gulp.watch(config.path.source + config.path.js + '/**/*.js', ['js','bs-reload']);
+    // gulp.watch(config.path.source + config.path.html + '/**/*.html', ['html','bs-reload']);
+    // gulp.watch(config.path.source + config.path.ejs + '/**/*.*', ['ejs','bs-reload']);
     
 });
 
@@ -291,11 +291,11 @@ gulp.task('run', function (callback) {
 });
 
 
-gulp.task('build', function (callback) {
-  return runSequence(
-      'clean',
-      ['scss','hologram','js','ejs','html','copy'],
-      'imagemin',
-      callback
-  );
-});
+// gulp.task('build', function (callback) {
+//   return runSequence(
+//       'clean',
+//       ['scss','hologram','js','ejs','html','copy'],
+//       'imagemin',
+//       callback
+//   );
+// });
