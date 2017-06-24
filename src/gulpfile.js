@@ -9,6 +9,7 @@ var $ = require('gulp-load-plugins')({
 var runSequence = require('run-sequence');
 var browserSync = require('browser-sync');
 var assetFunctions = require('node-sass-asset-functions');
+  var minifycss = require('gulp-minify-css');
 
 // ------------------------------------------------------------
 // config
@@ -41,8 +42,9 @@ gulp.task('scss', function(){
         .pipe($.sass(
             {
               functions: assetFunctions({
-                images_path: assetsDir + '/img',
-                http_images_path: "/img"
+                // todo 治す
+                images_path:'./' + assetsDir + 'img',
+                http_images_path: "./assets/img"
               })
             }
         ))
@@ -52,7 +54,9 @@ gulp.task('scss', function(){
             require('autoprefixer')({browsers: browsers}),
             require('css-mqpacker')
         ]))
+        .pipe(minifycss())/*cssを圧縮*/
         .pipe($.sourcemaps.write('./'))
+
         .pipe(gulp.dest(distDir +  assetsDir + 'css/'))
 });
 
@@ -134,6 +138,7 @@ gulp.task('js',function(){
         .pipe($.uglify())
         .pipe(gulp.dest(distDir + assetsDir + 'js/'));
     gulp.src( srcDir + assetsDir + 'js/!(_)*.js') //パーシャルを除外
+        .pipe($.uglify())
         .pipe(gulp.dest(distDir + assetsDir + 'js/'))
 });
 //    gulp.src([srcDir + assetsDie + 'js/*.js','!' + srcDir + assetsDie + 'js/**/_*.js']) //パーシャルを除外
@@ -153,9 +158,12 @@ gulp.task('copy', function() {
     gulp.src(srcDir + assetsDir + 'fonts/**/*')
         .pipe(gulp.dest(distDir + assetsDir + 'fonts'))
         .pipe(browserSync.stream());
-  gulp.src(srcDir + assetsDir + 'js/lib/**/*')
-      .pipe(gulp.dest(distDir + assetsDir + 'js/lib/'))
+    gulp.src('bower_components/font-awesome/fonts/**/*')
+      .pipe(gulp.dest(distDir + assetsDir + 'fonts'))
       .pipe(browserSync.stream());
+    gulp.src(srcDir + assetsDir + 'js/lib/**/*')
+        .pipe(gulp.dest(distDir + assetsDir + 'js/lib/'))
+        .pipe(browserSync.stream());
 });
 
 // ------------------------------------------------------------

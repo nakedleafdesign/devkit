@@ -1,0 +1,111 @@
+/*--------------------------------------------------------------//
+// @ list
+// ------------------------------------------------------------ */
+
+/*doc
+---
+title: リスト1
+name: list01
+category: list
+---
+
+
+```html_example
+
+<ul class="list01">
+  <li>リストサンプル</li>
+  <li>リストサンプル</li>
+  <li>リストサンプル</li>
+  <li>リストサンプル</li>
+  <li>リストサンプル</li>
+  <li>リストサンプル</li>
+</ul>
+
+```
+
+*/
+
+/*doc
+---
+title: リスト2
+name: list02
+category: list
+---
+
+
+```html_example
+
+<ul class="list02">
+  <li>リストサンプル</li>
+  <li>リストサンプル</li>
+  <li>リストサンプル</li>
+  <li>リストサンプル</li>
+  <li>リストサンプル</li>
+  <li>リストサンプル</li>
+</ul>
+
+```
+
+*/
+
+.list01{
+  list-style: none;
+  margin: 1.5em 0;
+  li{
+    position: relative;
+  }
+  li:before{
+    display: inline-block;
+    position: absolute;
+    top:50%;
+    left:-1.3em;
+    transform: translate(0, -50%);
+    content: '';
+    width: 5px;
+    height: 1px;
+    background: $text-color;
+    opacity: .5;
+  }
+}
+
+/*doc
+---
+title: リスト番号
+name: list-nun
+category: list
+---
+
+
+```html_example
+
+<ol class="list-num">
+  <li>リストサンプル</li>
+  <li>リストサンプル</li>
+  <li>リストサンプル</li>
+  <li>リストサンプル</li>
+  <li>リストサンプル</li>
+  <li>リストサンプル</li>
+</ol>
+
+```
+
+*/
+
+.listnum01 {
+  list-style: none;
+  counter-reset: my-counter;
+  margin: 1.5em 0;
+  li {
+    position: relative;
+  }
+  li:before {
+    display: inline-block;
+    position: absolute;
+    content: counter(my-counter)".";
+    counter-increment: my-counter;
+    top: 50%;
+    left: -1.3em;
+    transform: translate(0, -50%);
+    opacity: .5;
+  }
+}

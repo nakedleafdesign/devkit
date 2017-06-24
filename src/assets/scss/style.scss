@@ -40,8 +40,8 @@ category: index
 /* ============================================================ //
 // @ components
 // ============================================================ */
-
-@import "./components";
+//@import "./components";
+@import "../../components/loaders.css-master/src/loaders.scss";
 
 /* ============================================================ //
 // @ original stylesheets
@@ -58,6 +58,11 @@ category: index
 @import "./module/_nav";
 @import "./module/_visual";
 @import "./module/_form";
+@import "./module/btn";
+@import "./module/heading";
+@import "./module/list";
+@import "./module/table";
+@import "./module/side";
 
 // @ Layout
 // ------------------------------

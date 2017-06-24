@@ -1,0 +1,218 @@
+/*--------------------------------------------------------------//
+// @ table
+// ------------------------------------------------------------ */
+
+/*doc
+---
+title: テーブル01
+name: table01
+category: table
+---
+
+
+```html_example
+
+<div class="table01">
+  <table>
+    <tr>
+      <th>タイトル</th>
+      <td>ダミーテキスト</td>
+    </tr>
+    <tr>
+      <th>タイトル</th>
+      <td>ダミーテキスト</td>
+    </tr>
+    <tr>
+      <th>タイトル</th>
+      <td>ダミーテキスト</td>
+    </tr>
+  </table>
+</div>
+
+```
+
+*/
+
+%table-base {
+    width: 100%;
+    table-layout: auto;
+    margin:3em 0;
+  
+  
+  th,td{
+    padding: 1em .8em .9em;
+    vertical-align: top;
+  }
+  th {
+  }
+  
+  td {
+  }
+  
+  tr,
+  td,
+  th {
+    }
+  
+}
+
+
+.table01{
+  @extend %table-base;
+  width: 100%;
+  tr,th,td{
+    @include max-media($screen-sm){
+      display: block;
+      width: 100%;
+    }
+  }
+  th,td{
+    border-bottom:1px solid;
+  }
+  th{
+    position: relative;
+    max-width: 35%;
+    text-align: left;
+    border-color:#888;
+    @include max-media($screen-sm){
+      max-width:100%;
+      //border-color:#ccc;
+      //border-bottom:1px dotted #ccc;
+      background: #eee;
+      border: none;
+    }
+  }
+  td{
+    border-color: #ccc;
+    @include max-media($screen-sm){
+      //border-color:#888;
+      border: none;
+    }
+  }
+}
+
+
+/*doc
+---
+title: スクロールテーブル
+name: table--scroll
+category: table
+---
+
+
+```html_example
+
+<div class="table01 table--scroll">
+  <table>
+    <tr>
+      <th>ダミータイトル</th>
+      <td>ダミーテキストです。ご了承ください。ダミーテキストです。ご了承ください。ダミーテキストです。ご了承ください。</td>
+    </tr>
+    <tr>
+      <th>ダミータイトル</th>
+      <td>ダミーテキストです。ご了承ください。ダミーテキストです。ご了承ください。ダミーテキストです。ご了承ください。</td>
+    </tr>
+  </table>
+</div>
+
+```
+
+*/
+
+.table--scroll{
+  
+  @include max-media($screen-sm){
+    
+    
+    td, th {
+      white-space: nowrap;
+      width: 100%;
+    }
+    width: 100%;
+    overflow-y: hidden;
+    overflow-x: auto;
+    position: relative;
+    &:before {
+      @include fa-icon();
+      text-align: center;
+      display: block;
+      font-size: 12px;
+      content: "#{$fa-var-arrows-h}　この表は左右に動かせます。";
+      //margin-bottom: 20px;
+      padding-bottom: 5px;
+    }
+  }
+  @include max-media($screen-sm){
+    &:after {
+      //    content: "#{$fa-var-arrows-h}　このテーブルは左右に動かす事が出来ます。";
+    }
+  }
+}
+
+
+/*doc
+---
+title: テーブル02
+name: table02
+category: table
+---
+
+
+```html_example
+
+<div class="table02">
+  <table>
+    <tr>
+      <th>商品名</th>
+      <td>ヴィトン Ｍ40007</td>
+    </tr>
+    <tr>
+      <th>買取価格</th>
+      <td>34,000円</td>
+    </tr>
+    <tr>
+      <th>取扱店舗</th>
+      <td>リサイクルマート 中洲店</td>
+    </tr>
+  </table>
+</div>
+
+```
+
+*/
+
+.table02{
+  @extend %table-base;
+  table{
+    margin:1em 0 2em;
+  }
+  th,td,tr{
+    @include max-media($screen-sm){
+      display: block;
+    }
+  }
+  th,td{
+    border-top: none;
+    border-right:none;
+    border-left:none;
+    
+  }
+  th{
+    background: transparent;
+    color:$text-color;
+  }
+  tr{
+    @include max-media($screen-sm){
+      margin-bottom: 1em;
+    }
+  }
+}
+
+.table02.table02-auto-width{
+  table{
+    width:auto;
+    @include max-media($screen-sm){
+      width: 100%;
+    }
+  }
+}

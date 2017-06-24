@@ -1,3 +1,122 @@
 /* ============================================================ //
 // @ header
 // ============================================================ */
+
+$img_path: "./../../assets/img/";
+
+.header{
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 99999;
+  overflow-x:visible;
+  @include max-media($screen-md){
+    box-shadow: 2px 0px 5px rgba(0,0,0,.4);
+    opacity:.95;
+  }
+  &__inner{
+    margin: 0 auto;
+    padding:15px 130px 20px;
+    width: 100%;
+    min-width: 1200px;
+    max-width:1200px;
+    @include max-media($screen-md){
+      padding:0 4%;
+      min-width:100%;
+    }
+  }
+  &__inner--top{
+    padding:15px 30px 20px;
+    @include max-media($screen-md){
+      padding: 0 4%;
+    }
+  }
+  @include max-media($screen-md){
+    z-index: 99999;
+    height: $header-hight;
+    background: #fff;
+  }
+  
+}
+.header-group{
+  display: flex;
+  -js-display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  
+  align-items:center;
+}
+.h-logo{
+  background:url("#{$img-path}common/h-logo-black.png") center center no-repeat;
+  width: 110px;
+  height: 45px;
+  background-size:contain;
+  @include max-media($screen-md){
+    position: relative;
+    top: 1px;
+    //@include bgimgx2('common/h-logo-black.png');
+    background-image: url(../../assets/img/common/h-logo-black.png);
+    background-size:contain;
+    width: 74px;
+    height:$header-hight;
+    line-height:$header-hight;
+  }
+}
+
+// @
+// ------------------------------------------------------------
+$toggle-space:7px;
+
+.header-toggle{
+  display: none;
+  z-index: 999999;
+  position: fixed;
+  right: 3.125%;
+  top: 10px;
+  width: 44px;
+  height: 44px;
+  span {
+    display: block;
+    position: absolute;
+    top: 50%;
+    right: 0;
+    width: 20px;
+    height: 2px;
+    background: $text-color;
+    transition: all 0.3s;
+    transform: rotate(0deg);
+  }
+  span.top{
+    transform: translateY(-$toggle-space);
+  }
+  span.bottom{
+    transform: translateY($toggle-space);
+  }
+  @include max-media($screen-md){
+    display: block;
+  }
+}
+
+.header-toggle.is-active{
+  span.middle{
+    background: rgba(255, 255, 255, 0);
+  }
+  span.top{
+    transform: rotate(-45deg) translateY(0px);
+  }
+  span.bottom{
+    transform: rotate(45deg) translateY(0px);
+  }
+}
+
+
+.header-toggle{
+  top: 2px;
+  
+  &__top{
+    transform: translateY(-8px);
+  }
+  &__bottom{
+    transform: translateY(8px);
+  }
+}

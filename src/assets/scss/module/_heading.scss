@@ -1,0 +1,124 @@
+
+/*--------------------------------------------------------------//
+// @ heading
+// ------------------------------------------------------------ */
+
+
+
+/*doc
+---
+title: 見出し1
+name: section-heading01
+category: heading
+---
+
+```html_example
+
+<div class="section-heading01-unit">
+  <h2 class="section-heading01"><span class="section-heading01__inner">質屋リサイクルマートが選ばれるワケ</span></h2>
+  <p class="section-heading01__lead">ご自宅のご不用品をまとめて買取します！</p>
+</div>
+
+```
+
+*/
+.section-heading01-unit{
+  display: table;
+  margin:0 auto;
+  margin-bottom: 30px;
+}
+.section-heading01{
+  text-align: center;
+  font-family:$font-family-ryumin;
+  font-size: 28px;
+  line-height: 1.2;
+  @include max-media($screen-sm){
+    font-size: 20px;
+  }
+  &__head{
+    font-family:$font-family-ryumin;
+    text-align: center;
+    line-height: 1;
+    margin-bottom:50px;
+    @include max-media($screen-sm){
+      margin-bottom: 30px;
+    }
+  }
+  &__lead{
+    margin-top: 8px;
+    text-align: center;
+    color: $gray-light;
+  }
+}
+
+.section-heading01{
+  &--white{
+    @extend .section-heading01;
+    color: #fff;
+  }
+  &__head--white{
+    @extend .section-heading01__head;
+    color: #fff;
+  }
+  &__lead--white{
+    @extend .section-heading01__lead;
+    color: #fff;
+  }
+}
+
+.heading01{
+  position: relative;
+  font-family:$font-family-ryumin;
+  font-size: 25px;
+  line-height: 1.2;
+  margin:1.5em 0;
+  //border-top:1px solid $text-color;
+  //border-bottom:1px solid $text-color;
+  @include max-media($screen-sm){
+    font-size: 20px;
+  }
+  &:before{
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    display: block;
+    content: '';
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(to right, #ccc 0%,rgba(0,0,0,0) 100%);
+    
+  }
+}
+
+.heading02{
+  position: relative;
+  margin:2.5em 0 1.5em;
+  padding-left: 1.25em;
+  line-height: 1.2;
+  font-family:$font-family-ryumin;
+  font-size: 20px;
+  &:before{
+    position: absolute;
+    top:50%;
+    left:0%;
+    transform: translate(0, -50%);
+    display: inline-block;
+    content: '';
+    width: .75em;
+    height: 1px;
+    background: #ccc;
+    //opacity:.5;
+  }
+  @include max-media($screen-sm){
+    font-size: 20px;
+  }
+}
+
+.heading03{
+  font-size: 18px;
+  margin:2.5em 0 1em;
+  font-family:$font-family-ryumin;
+  @include max-media($screen-sm){
+    font-size: 16px;
+  }
+}

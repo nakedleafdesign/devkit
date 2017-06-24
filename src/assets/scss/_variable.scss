@@ -8,7 +8,7 @@ $gray-base:              #333;
 $gray-darker:            lighten($gray-base, 13.5%); // #222
 $gray-dark:              lighten($gray-base, 20%);   // #333
 $gray:                   lighten($gray-base, 33.5%); // #555
-$gray-light:             lighten($gray-base, 40%);
+$gray-light:             #999;
 $gray-lighter:           lighten($gray-base, 93.5%); // #eee
 
 
@@ -79,12 +79,14 @@ $font-family-yumin : YuMincho,'Yu Mincho',serif;
 $font-family-meiryo: "メイリオ",'Meiryo',MyYuGothicM, YuGothic,'ヒラギノ角ゴシック', 'Hiragino Sans', 'ヒラギノ角ゴ ProN W3', 'Hiragino Kaku Gothic ProN', -apple-system, BlinkMacSystemFont, sans-serif;
 
 $font-family-sawarabi : Sawarabi Mincho;
-
+$font-family-ryumin: "Ryumin Medium KL",YuMincho,'Yu Mincho',serif;
+$open-sans: 'Open Sans', sans-serif;
+$roboto-condensed: 'Roboto Condensed', sans-serif;
 $font-family-base: $font-family-yumin;
 
 $font-size-base:          15px;
 $font-size-base-tab:      14px;
-$font-size-base-sp:       13px;
+$font-size-base-sp:       14px;
 
 $font-size-large:         ceil(($font-size-base * 1.25)) !default; // ~18px
 $font-size-small:         ceil(($font-size-base * 0.85)) !default; // ~12px
@@ -332,12 +334,10 @@ $hover-opacity      : .7;
 /* @ fontawesome config
 // ------------------------------------------------------------ */
 
-$fa-font-path:        "../fonts/font-awesome_4.7.0";
 $fa-font-size-base:   $font-size-base;
 $fa-line-height-base: 1;
 //$fa-font-path:        "//netdna.bootstrapcdn.com/font-awesome/4.7.0/fonts" !default; // for referencing Bootstrap CDN font files directly
 $fa-css-prefix:       fa;
-$fa-version:          "4.7.0";
 $fa-border-color:     #eee !default;
 $fa-inverse:          #fff !default;
 $fa-li-width:         (30em / 14) !default;
@@ -346,3 +346,13 @@ $fa-li-width:         (30em / 14) !default;
 // ------------------------------------------------------------
 
 $toggle-color : #444;
+
+// @ size
+// ------------------------------------------------------------
+
+$header-hight: 50px;
+
+// @ component overwrite
+// ------------------------------------------------------------
+
+$primary-color: #333;

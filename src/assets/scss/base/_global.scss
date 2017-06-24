@@ -21,16 +21,16 @@ html{
   }
 }
 body{
-  overflow-x: hidden;
+  //overflow-x: hidden;
   margin: 0;
   padding: 0;
-  @include max-media(1100px){
-    overflow-x: visible;
-  }
-  @include max-media($screen-md){
-    margin-top: 60px;
-    overflow-x: hidden;
-  }
+  //@include max-media(1100px){
+  //  overflow-x: visible;
+  //}
+  //@include max-media($screen-md){
+  //  margin-top: 60px;
+  //  overflow-x: hidden;
+  //}
 }
 h1,h2,h3,h4,h5,h6{
   margin: 0;

@@ -1,0 +1,152 @@
+//
+// Button groups
+// --------------------------------------------------
+
+// Make the div behave like a button
+.btn-group,
+.btn-group-vertical {
+  position: relative;
+  display: inline-block;
+  vertical-align: middle; // match .btn alignment given font-size hack above
+  > .btn {
+    position: relative;
+    float: left;
+    // Bring the "active" button to the front
+    &:hover,
+    &:focus,
+    &:active,
+    &.active {
+      z-index: 2;
+    }
+  }
+}
+
+// Prevent double borders when buttons are next to each other
+.btn-group {
+  .btn + .btn,
+  .btn + .btn-group,
+  .btn-group + .btn,
+  .btn-group + .btn-group {
+    margin-left: -1px;
+  }
+}
+
+.btn-group{
+  margin-left: -10px;
+  margin-right: -10px;
+  width: 100%;
+  @include clearfix;
+  &--center{
+    display: flex;
+    -js-display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items:flex-start;
+    margin-left: -10px;
+    margin-right: -10px;
+    width: 100%;
+    
+    @include clearfix;
+    .btn{
+      margin: 1em 10px;
+    }
+  }
+  .btn{
+    margin: 1em 10px;
+  }
+}
+
+.btn{
+  border-radius: 0;
+  -webkit-box-sizing: content-box;
+  -webkit-appearance:none;
+  appearance: none;
+  border: none;
+  box-sizing: border-box;
+  cursor: pointer;
+  user-select: none;
+  -webkit-font-smoothing: antialiased;
+  background: none;
+  text-decoration: none;
+}
+.btn::-webkit-search-decoration,
+.btn::-webkit-search-decoration {
+  display: none;
+}
+.btn::focus,
+.btn::focus {
+  outline-offset: -2px;
+}
+
+// @ btn 01
+// ------------------------------------------------------------
+
+@mixin btn01($color:#666){
+  background:$color; //change
+  color:#fff;
+  border:none;
+  position:relative;
+  
+  font-size:1em;
+  padding:.9em 2em;
+  line-height: 1;
+  transition:500ms ease all;
+  outline:none;
+  border-radius: 3px;
+  &:hover{
+    background:transparent;
+    color:$color; //change
+    &:before,
+    &:after{
+      width:100%;
+      transition:500ms ease all;
+    }
+  }
+  &:before,
+  &:after{
+    content:'';
+    position:absolute;
+    top:0;
+    right:0;
+    height:2px;
+    width:0;
+    background: $color; //change
+    transition:300ms ease all;}
+  &:after{
+    right:inherit;
+    top:inherit;
+    left:0;
+    bottom:0;
+  }
+}
+
+.btn01{
+  @include btn01;
+  &--primary{
+    @include btn01($brand-primary);
+  }
+  &--success{
+    @include btn01($brand-success);
+  }
+  &--warning{
+    @include btn01($brand-warning);
+  }
+  &--danger{
+    @include btn01($brand-danger);
+  }
+}
+
+// Button Sizes
+// --------------------------------------------------
+
+.btn-lg {
+  // line-height: ensure even-numbered height of button next to large input
+  @include button-size($padding-large-vertical, $padding-large-horizontal, $font-size-large, $line-height-large, $btn-border-radius-large);
+}
+.btn-sm {
+  // line-height: ensure proper height of button next to small input
+  @include button-size($padding-small-vertical, $padding-small-horizontal, $font-size-small, $line-height-small, $btn-border-radius-small);
+}
+.btn-xs {
+  @include button-size($padding-xs-vertical, $padding-xs-horizontal, $font-size-small, $line-height-small, $btn-border-radius-small);
+}
