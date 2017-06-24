@@ -60,7 +60,7 @@ var browsers = [
     '> 3%'
 ];
 
-gulp.task('scss', function(){``
+gulp.task('scss', function(){
 
   var distDir = config.path.dist + config.path.css;
 
@@ -150,6 +150,23 @@ gulp.task('js',function(){
         .pipe(gulp.dest(distDir))
 });
    // gulp.src([srcDir + assetsDie + 'js/*.js','!' + srcDir + assetsDie + 'js/**/_*.js']) //パーシャルを除外
+
+
+//========================================================================
+// @ $画像最適化
+//========================================================================
+
+gulp.task('imagemin', function(){
+
+  var distDir = config.path.dist + config.path.img;
+
+  gulp.src(config.path.source + config.path.img +  "/**/*.jpg")
+      .pipe($.imagemin())
+      .pipe(gulp.dest(distDir));
+  gulp.src(config.path.source + config.path.img +  "/**/*.png")
+      .pipe($.imagemin())
+      .pipe(gulp.dest(distDir));
+});
 
 
 //========================================================================
@@ -279,6 +296,7 @@ gulp.task('build', function (callback) {
   return runSequence(
       'clean',
       ['scss','hologram','js','ejs','copy.html','copy'],
+      'imagemin',
       callback
   );
 });
