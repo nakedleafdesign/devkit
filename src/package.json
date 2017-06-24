@@ -10,9 +10,12 @@
   "license": "ISC",
   "devDependencies": {
     "autoprefixer": "^6.7.2",
+    "bootstrap-sass": "^3.3.7",
     "browser-sync": "^2.18.7",
     "css-mqpacker": "^5.0.1",
+    "del": "^3.0.0",
     "doiuse": "^2.5.0",
+    "font-awesome": "^4.7.0",
     "gulp": "^3.9.1",
     "gulp-concat": "^2.6.1",
     "gulp-ejs": "^3.0.1",
@@ -29,6 +32,7 @@
     "gulp-sourcemaps": "^2.4.0",
     "gulp-uglify": "^2.0.1",
     "gulp-watch": "^4.3.11",
+    "jquery": "^3.2.1",
     "node-sass-asset-functions": "^0.1.0",
     "run-sequence": "^1.2.2"
   }

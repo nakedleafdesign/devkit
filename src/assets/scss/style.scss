@@ -1,39 +1,26 @@
 @charset "UTF-8";
 
-/*doc
----
-title: index
-name: index
-category: index
----
 
+/* ============================================================ //
+// @ components
+// ============================================================ */
 
+@import "../../node_modules/bootstrap-sass/assets/stylesheets/bootstrap/variables";
+@import "../../node_modules/font-awesome/scss/variables";
+@import "../../node_modules/bootstrap-sass/assets/stylesheets/bootstrap/mixins";
+@import "../../node_modules/font-awesome/scss/mixins";
 
-```html_example
-
-
-
-```
-
-*/
-
-// @ Config & Mixins
-// ------------------------------------------------------------
-
-@import "../../bower_components/bootstrap-sass/assets/stylesheets/bootstrap/variables";
-@import "../../bower_components/font-awesome/scss/variables";
 @import "./variable";
-@import "../../bower_components/bootstrap-sass/assets/stylesheets/bootstrap/mixins";
-@import "../../bower_components/font-awesome/scss/mixins";
 @import "./mixins/mixin";
 
 /* ============================================================ //
 // @ base styles
 // ============================================================ */
 
-@import "./base/normalize";
+@import "../../node_modules/bootstrap-sass/assets/stylesheets/bootstrap/_normalize";
 @import "./base/reset";
 @import "./base/global";
+@import "../../node_modules/font-awesome/scss/font-awesome";
 @import "./base/fonts";
 
 
