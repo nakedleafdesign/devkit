@@ -187,7 +187,7 @@ gulp.task('html',function () {
 gulp.task('copy', function() {
 
   var distDir = config.path.dist;
-  
+
     //img
     gulp.src(config.path.source + config.path.img + '/**/*')
         .pipe(gulp.dest(distDir + config.path.img))
