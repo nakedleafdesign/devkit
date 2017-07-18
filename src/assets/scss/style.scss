@@ -1,6 +1,5 @@
  @charset "UTF-8";
-
-
+ 
 /* ============================================================ //
 // @ components
 // ============================================================ */
@@ -23,12 +22,11 @@
 @import "../../node_modules/font-awesome/scss/font-awesome";
 @import "./base/fonts";
 
-
 /* ============================================================ //
-// @ components
+// @ bootstrap components
 // ============================================================ */
-//@import "./components";
-@import "../../components/loaders.css-master/src/loaders.scss";
+
+@import "./components";
 
 /* ============================================================ //
 // @ original stylesheets
@@ -45,29 +43,32 @@
 @import "./module/_nav";
 @import "./module/_visual";
 @import "./module/_form";
-@import "./module/btn";
-@import "./module/heading";
-@import "./module/list";
-@import "./module/table";
-@import "./module/side";
+@import "./module/_btn";
+@import "./module/_heading";
+@import "./module/_list";
+@import "./module/_table";
+@import "./module/_side";
 
 // @ Layout
 // ------------------------------
 @import "./layout/_footer";
 @import "./layout/_header";
 @import "./layout/_sidebar";
-@import "./layout/top";
+@import "./layout/_top";
 
 // @ Tools
 // ------------------------------
-@import "./tools/text";
-@import "./tools/margin";
-@import "./tools/padding";
-@import "./tools/width";
-@import "./tools/visible";
-@import "./tools/color";
-@import "./tools/util";
+@import "./tools/_text";
+@import "./tools/_margin";
+@import "./tools/_padding";
+@import "./tools/_width";
+@import "./tools/_visible";
+@import "./tools/_color";
+@import "./tools/_util";
 
 /* ============================================================ //
 // @ media querys
 // ============================================================ */
+
+
+

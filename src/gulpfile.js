@@ -17,7 +17,7 @@ var assetFunctions = require('node-sass-asset-functions');
 
 // Directorys
 var srcDir = './';
-var distDir = '../dist/';
+var distDir = '../dist/html';
 var assetsDir = 'assets/';
 var htmlDir = 'html/';
 
@@ -39,7 +39,7 @@ config = {
     "css": "/assets/css",
     "img": "/assets/img",
     "svg": "/assets/svg",
-    "html": "html",
+    "html": "/html",
     "js": "/assets/js",
     "file": "/assets/file",
     "fonts": "/assets/fonts",
@@ -177,7 +177,7 @@ gulp.task('html',function () {
   var distDir = config.path.dist;
 
   //html
-  gulp.src(config.path.source + config.path.html + '*')
+  gulp.src(config.path.source + 'html/*.html')
       .pipe(gulp.dest(distDir))
       .pipe(browserSync.stream());
 
