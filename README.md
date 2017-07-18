@@ -12,96 +12,17 @@
 
 -----
 
-## 開発環境インストール手順	
+## 開発環境インストール手順	 
 
-1. nodebrewをインストールする  
-    node.jsを自分のマシン内でversion管理するためのツールです。
-      
-2. nodebrewインストール前の確認  
-    まず、nodebrewを入れる前に、既にnode.jsがインストールされている場合削除します。
-    `node` コマンドを実行、反応が無ければOKです。  
-    反応があった場合は、node.jsがinstallされているので、削除しましょう。  
-    削除方法は[コチラ](http://qiita.com/sinmetal/items/154e81823f386279b33c#nodebrew%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB%E5%89%8D%E3%81%AE%E7%A2%BA%E8%AA%8D)
-    
-3. nodebrewをインストールする
-  
-    `curl -L git.io/nodebrew | perl - setup`
-      
-    その後以下パスを
-         
-    `export PATH=$HOME/.nodebrew/current/bin:$PATH`
-      
-     追加する 
-      
-    `source ~/.bash_profile`
-
-4. node.jsをインストール
-    インストールできるnode.jsのversionを確認
-    
-    `nodebrew ls-remote`
-    
-    バージョンを指定してインストール、ここでは推奨環境のバージョンをインストール
-    
-    `nodebrew install-binary v5.5.0`
-    
-5. インストールされているバージョンを確認、設定する
-
-     `nodebrew ls`  
-     `v0.10.12`    
-     `current: none`
-     
-     currentに出てくるのが、現在利用中のversionです。
-     まだ、v0.10.12をインストールしただけで利用するように設定してないので、noneになっています。
-     後は、使いたいバージョンをcurrentにすれば、完了
-       
-     `nodebrew use v0.10.12`  
-     `node -v`  
-     `v0.10.12`  
- 
-6. npmbrewをインストールする  
-    npmbrewとはnpm(node package manager)のバージョンを管理するツールです
-      
-    `npm install -g npmbrew`
-
-7. npmのバージョンを指定してインストール、ここでは推奨環境のバージョンをインストール
-  
-    `npmbrew install 3.3.12`
-    
-8. 確認し、インストールしたversionを選択 
- 
-    `npmbrew ls`  
-    `3.3.12`  
-    `npmbrew use 3.3.12`  
-    `npmbrew ls`  
-    `2.7.4`  
-    `current: 3.3.12`  
-    
-9. gulpがインストールされているか確認をする  
-    `gulp -v`  
-    `CLI version 1.x.x`  
-    のような表示が出た人は、gulp-cliがインストールされています。  
-    表示されなかった場合は **10.gulp-cliをインストール** に進んで下さい。
-    CLI version 3.x.xのような表示が出た場合、古いバージョンのgulpがグローバルにインストールされてしまっているので、アンインストールのち改めてインストールを行う必要があります。  
-    `npm uninstall -g gulp`  
-    上記のコマンドで古いgulpをアンインストール  
-
-10. gulp-cliをインストール
-    `npm install -g gulp-cli`  
-    上記のコマンドでインストール  
-
-11. node_modulesをインストールする   
+1. node_modulesをインストールする   
     `cd /src/`   
     `npm install --save-dev`  
      を行い開発に必要なnode_modulesをインストールする
        
-12. bundleでファイルをインストール  
+2. bundleでファイルをインストール  
     `bundle install` を行い必要なファイルをインストールする  
     
-13. bowerをインストールする    
-    `npm install bower -g` を行いグローバル環境にBowerをインストールをおこない  
-    `bower install` を行い必要なコンポーネントをインストールする。
-    
-14. 完了      
+3. 完了
 
 ### タスクの実行
 `cd /src/` に移動、以下コマンドでタスクが実行されます
@@ -114,7 +35,8 @@
 
 - `gulp scss` sassをcssにコンパイルします  
 - `gulp js` jsを難読化、結合を行います  
-- `gulp ejs` ejsをhtmlにコンパイルします  
+- `gulp ejs` ejsをhtmlにコンパイルします
+- `gulp html` htmlを出力します
 - `gulp copy` /src/ 以下の必要ファイルを /dist/ ディレクトリにコピーをします
 - `gulp hologram` スタイルガイドジェネレーター「hologram」を実行します。
 - `gulp bs` ローカルサーバーを立ち上げます。このタスクは単一で使用することは少なく主に`gulp run`で使用します。
