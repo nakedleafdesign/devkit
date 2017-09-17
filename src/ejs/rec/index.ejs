@@ -1,0 +1,37 @@
+<%
+var page = {
+  title : 'レコーディング資料',
+  url : 'index.html',
+  date: '2017.9',
+  noindex : true
+}
+%>
+<%- include('../_partial/_head-child.ejs',{page:page}) %>
+<body>
+<%- include('../_partial/_header-child.ejs',{page:page}) %>
+<main class="main-container js-header-hidden__content">
+  <%- include('../_partial/_key-visual.ejs',{page:page}) %>
+  <div class="container">
+    <div class="container__inner block-group">
+      <section class="block-primary">
+        <div class="entry">
+          <h2 class="heading01">インデックス</h2>
+          <ul class="list01">
+            <li><a href="./realize.html">Realize</a></li>
+            <li><a href="./beyond.html">Beyond</a></li>
+            <li><a href="./appearlance.html">Appear lance</a></li>
+          </ul>
+        </div>
+      </section>
+      <%- include('../_partial/_side-bar--rec.ejs') %>
+    </div>
+  </div>
+</main>
+<%- include('../_partial/_footer.ejs') %>
+
+
+
+
+
+
+

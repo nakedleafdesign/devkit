@@ -3,8 +3,7 @@
 // --------------------------------------------------
 
 // Make the div behave like a button
-.btn-group,
-.btn-group-vertical {
+.btn-group{
   position: relative;
   display: inline-block;
   vertical-align: middle; // match .btn alignment given font-size hack above
@@ -19,6 +18,21 @@
       z-index: 2;
     }
   }
+}
+
+.btn-group-vertical {
+  position: relative;
+  vertical-align: middle; // match .btn alignment given font-size hack above
+> .btn {
+  position: relative;
+  // Bring the "active" button to the front
+  &:hover,
+  &:focus,
+  &:active,
+  &.active {
+    z-index: 2;
+  }
+}
 }
 
 // Prevent double borders when buttons are next to each other
@@ -68,6 +82,7 @@
   -webkit-font-smoothing: antialiased;
   background: none;
   text-decoration: none;
+  margin:1em 0;
 }
 .btn::-webkit-search-decoration,
 .btn::-webkit-search-decoration {
@@ -136,6 +151,43 @@
   }
 }
 
+// @ btn 02
+// ------------------------------------------------------------
+
+@mixin btn02($color:#666){
+  background:$color; //change
+  color:#fff;
+  border:none;
+  position:relative;
+  border-radius: 30px;
+  font-size:1em;
+  padding:.6em 2em;
+  line-height: 1;
+  transition:500ms ease all;
+  text-align: center;
+  outline:none;
+  @include transition-delay();
+  &:hover{
+    opacity:$hover-opacity;
+  }
+}
+
+.btn02{
+  @include btn02;
+  &--primary{
+    @include btn02($brand-primary);
+  }
+  &--success{
+    @include btn02($brand-success);
+  }
+  &--warning{
+    @include btn02($brand-warning);
+  }
+  &--danger{
+    @include btn02($brand-danger);
+  }
+}
+
 // Button Sizes
 // --------------------------------------------------
 
@@ -149,4 +201,8 @@
 }
 .btn-xs {
   @include button-size($padding-xs-vertical, $padding-xs-horizontal, $font-size-small, $line-height-small, $btn-border-radius-small);
+}
+.btn-block{
+  display: block;
+  width: 100%;
 }

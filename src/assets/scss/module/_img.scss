@@ -1,0 +1,73 @@
+/* ============================================================ //
+// @ img
+// ============================================================ */
+
+
+/*doc
+---
+title: 画像
+name: img
+category: images
+---
+
+
+```html_example
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-3"><img class="img-responsive" src="https://placehold.jp/150x150.png" alt="ダミー"></div>
+    <div class="col-xs-3"><img class="img-frame" src="https://placehold.jp/150x150.png" alt="ダミー"></div>
+    <div class="col-xs-3"><img class="img-round" src="https://placehold.jp/150x150.png" alt="ダミー"></div>
+    <div class="col-xs-3"><img class="img-circle" src="https://placehold.jp/150x150.png" alt="ダミー"></div>
+  </div>
+  <br>
+  <div class="row">
+    <div class="col-xs-3 img-shine"><img class=" img-responsive" src="https://placehold.jp/150x150.png" alt="ダミー"></div>
+  </div>
+</div>
+
+```
+
+*/
+
+.img-responsive{
+  display: block;
+  max-width: 100%;
+  height: auto;
+  width: 100%;
+}
+.img-frame{
+  border: 1px solid #ccc;
+  background-color: #FFF;
+  padding:3px;
+  height: auto;
+  img{vertical-align: bottom;}
+}
+.img-round {
+  border-radius: 5px;
+  overflow: hidden;
+  img{vertical-align: bottom;}
+}
+.img-circle { border-radius: 50%; }
+.img-shine {
+  overflow: hidden;
+  line-height: 0;
+  position: relative;
+  img{}
+  &:before {
+    content: '';
+    display: block;
+    width: 100%;
+    z-index: 1;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: linear-gradient(135deg,  rgba(255,255,255,.3) 0%,rgba(255,255,255,.3) 40%,rgba(255,255,255,0) 40%,rgba(255,255,255,0) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  }
+}
+
+
+.img-container{
+  margin: 1em 0 2em 0;
+}

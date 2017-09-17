@@ -1,0 +1,134 @@
+/* ============================================================ //
+// @ text
+// ============================================================ */
+
+$font-size-lg: 20px;
+$font-size-md: 18px;
+$font-size-sm: 17px;
+
+/*doc
+---
+title: テキスト装飾
+name: text
+category: text
+---
+
+<div class="styleguide-table"></div>
+View                                                                      | Class          |  Description
+-----------------------------------------------------------------------   | ------------   |   ---------   |
+<p class="text">ダミーテキストです。ご了承ください。</p>                       | `text`         |               |
+<p><a class="text-link--under">ダミーテキストです。ご了承ください。</a> </p>                | `text-link--under`    |               |
+<p><a class="text-link--bg">ダミーテキストです。ご了承ください。</a>    </p>              | `text-link--bg`    |               |
+<p><a class="text-link--under-none">ダミーテキストです。ご了承ください。</a> </p>                 | `text-link--under-none`    |               |
+<p class="text-bold">ダミーテキストです。ご了承ください。</p>                  | `text-bold`    |               |
+<p class="text-left">ダミーテキストです。ご了承ください。</p>                  | `text-left`    |               |
+<p class="text-center">ダミーテキストです。ご了承ください。</p>                | `text-center`  |               |
+<p class="text-right">ダミーテキストです。ご了承ください。</p>                 | `text-right`   |               |
+<p class="text-point">ダミーテキストです。ご了承ください。</p>                 | `text-point`   |               |
+<p class="text-strike">ダミーテキストです。ご了承ください。</p>                | `text-strike`  |               |
+<p class="text-caption">ダミーテキストです。ご了承ください。</p>               | `text-caption` |               |
+<p class="text-small">ダミーテキストです。ご了承ください。</p>                 | `text-small`   |               |
+<p class="text-square">ダミーテキストです。ご了承ください。</p>                | `text-square`  |               |
+<p class="text-button"><a href="">ダミーテキストです。ご了承ください。</a></p> | `text-button`  |               |
+
+*/
+
+
+.text-bold {
+  font-weight: bold;
+}
+
+a.text-link--under {
+  text-decoration: underline;
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+a.text-link--bg {
+  transition: all $hover-transition;
+  border-bottom: 1px solid $hover-bg;
+  text-decoration: none;
+  &:active,
+  &:focus,
+  &:hover {
+    color: $link-hover-color;
+  }
+  &:hover {
+    border-bottom: 1px solid $hover-bg;
+    background-color: $hover-bg;
+  }
+  &:link {
+    border-bottom: 1px solid $gray;
+  }
+  &:visited {
+    border-bottom: 1px solid $hover-bg;
+  }
+}
+
+a.text-link--under-none {
+  text-decoration: none;
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.text-left {
+  text-align: left;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.text-small {
+  font-size: .8em;
+}
+
+
+.text-caption {
+  color: $text-color-sub;
+  font-size: 14px;
+  line-height: 1.714285714;
+}
+
+.text-point {
+  display: inline;
+  //background: linear-gradient(transparent 70%, $brand-yellow 70%, $brand-yellow 90%, transparent 90%);
+  background: $swatch-yellow;
+  font-weight: bold;
+  padding: 1px;
+}
+
+.text-strike {
+  text-decoration: line-through;
+}
+
+
+.text-square {
+  margin-top: -1px;
+  border-radius: 4px;
+  background-color: $brand-main;
+  padding: 4px 8px;
+  color: #fff;
+}
+
+.text-button a {
+  display: inline-block;
+  transition: all $hover-transition;
+  border-radius: 5px;
+  background-color: $brand-main;
+  padding: 8px 30px 7px;
+  color: #fff;
+  @include link-hover();
+}
+
+.text-button a,
+.text-button a:hover {
+  text-decoration: none;
+  color: #fff;
+}

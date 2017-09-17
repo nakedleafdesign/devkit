@@ -1,4 +1,23 @@
-      </div>
-    </article>
-  </body>
+        </div> <!--styleguide_content-->
+      </div><!--entry-->
+    </section>
+    <section class="block-secondary">
+      <aside class="side-module side-list-group">
+        <h2 class="side-heading01">SIDE LIST MODULE</h2>
+        <ul class="side-list-body">
+          <% @categories.each do |category| %>
+          <li class="side-list-item"><a href="<%= category[1] %>"><%= category[0] %></a></li>
+          <% end %>
+        </ul>
+      </aside>
+    </section>
+  </div>
+</main>
+<a class="to-top js-to-top" href="#"></a>
+<footer class="container--full footer">
+  <div class="container__inner">
+    <p class="f-copy">Copyright © <script type="text/javascript">document.write(new Date().getFullYear());</script> Ashglow All rights reserved.</p>
+  </div>
+</footer>
+</body>
 </html>

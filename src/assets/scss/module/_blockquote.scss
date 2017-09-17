@@ -1,0 +1,69 @@
+/* ============================================================ //
+// @ blockquote
+// ============================================================ */
+
+/*doc
+---
+title: ボックス
+name: box-radius
+category: box
+---
+
+
+
+```html_example
+
+<div class="box-radius">
+  <div class="text-unit">
+    <p>ダミーテキスト</p>
+  </div>
+</div>
+
+```
+
+*/
+
+.box-radius{
+  border:2px solid $brand-main-lighter;
+  padding: 1.8em 2em;
+  box-sizing: border-box;
+  border-radius:8px;
+  background: #fff;
+  @include max-media($screen-sm){
+    padding: 1em 1.2em;
+  }
+}
+
+.blockquote{
+  position: relative;
+  background: #f8f8f8;
+  margin: 2em 0;
+  padding: 1.5em 2.5em 1.5em 2.5em;
+  color: $text-color;
+  &:before{
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: inline-block;
+    content: '';
+    width: 2px;
+    height: 100%;
+    background: #ccc;
+  }
+}
+.blockquote-cite{
+  position: relative;
+  display: block;
+  text-align: right;
+  color: #999;
+  &:before{
+    display: inline-block;
+    position: relative;
+    width: 13px;
+    height: 1px;
+    content: '';
+    top: -5px;
+    background: #999;
+    left: -4px;
+  }
+}

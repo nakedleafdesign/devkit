@@ -3,63 +3,67 @@
 // ============================================================ */
 
 .hidden--md {
-	@include max-media($screen-md) {
-		display: none !important;
-	}
+  @include max-media($screen-md) {
+    display: none !important;
+  }
 }
 
 .hidden--sm {
-	@include max-media($screen-sm) {
-		display: none !important;
-	}
+  @include max-media($screen-sm) {
+    display: none !important;
+  }
 }
 
 .visible--md {
-	display: none!important;
-	@include max-media($screen-md) {
-		display: block!important;
-	}
+  display: none !important;
+  @include max-media($screen-md) {
+    display: block !important;
+  }
 }
 
 .visible--sm {
-	display: none!important;
-	@include max-media($screen-sm) {
-		display: block!important;
-	}
+  display: none !important;
+  @include max-media($screen-sm) {
+    display: block !important;
+  }
 }
 
 /* ============================================================ //
 // @ display
 // ============================================================ */
 
-.is--block--sm{
-	@include max-media($screen-sm){
-		display: block!important;
-	}
+.is--block--sm {
+  @include max-media($screen-sm) {
+    display: block !important;
+  }
 }
-.dtable{
-	display: table!important;
+
+.dtable {
+  display: table !important;
 }
-.dflex{
-	display: flex!important;
-	-js-display: flex!important;
+
+.dflex {
+  display: flex !important;
+  -js-display: flex !important;
 }
-.dinline{
-	display: inline!important;
+
+.dinline {
+  display: inline !important;
 }
-.dib{
-	display: inline-block!important;
+
+.dib {
+  display: inline-block !important;
 }
 
 /* =================================================================
 /* @ overflow
 /* ================================================================ */
 
-.overflow-scrool--sm{
-	@include max-media($screen-md){
-		overflow: scroll;
-		width:100%;
-	}
+.overflow-scrool--sm {
+  @include max-media($screen-md) {
+    overflow: scroll;
+    width: 100%;
+  }
 }
 	
 

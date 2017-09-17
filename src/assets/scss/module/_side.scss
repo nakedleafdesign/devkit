@@ -1,0 +1,156 @@
+// @ side module
+// ------------------------------------------------------------
+
+.side-module {
+  margin-bottom: 2em;
+  @include max-media($screen-md) {
+    margin-bottom: 1em;
+  }
+  
+}
+
+// @ side-heading01
+// ------------------------------------------------------------
+
+.side-heading01 {
+  display: block;
+  position: relative;
+  width: 100%;
+  border-bottom: 1px solid #ccc;
+  margin-bottom: .8em;
+  padding-bottom: .2em;
+  line-height: 1;
+  @include fzem(18, 15);
+  font-weight: normal;
+  font-style: italic;
+  font-family: $roboto-condensed;
+  color: #888;
+  &:before {
+    display: block;
+    position: absolute;
+    bottom: -3px;
+    background: #ccc;
+    width: 100%;
+    height: 1px;
+    content: '';
+    
+  }
+}
+
+// @ side bar
+// ------------------------------------------------------------
+
+.side-bnr-group {
+  @include max-media($screen-md) {
+    display: flex;
+    -js-display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+  }
+}
+
+.side-bnr-item {
+  margin-bottom: 10px;
+  width: 100%;
+  @include max-media($screen-md) {
+    width: 49%;
+  }
+  @include max-media($screen-sm) {
+    width: 49%;
+  }
+  a {
+    display: block;
+    @include transition-delay();
+  }
+  a:hover{
+    opacity: $hover-opacity;
+  }
+  img {
+    @include img-responsive();
+    width: 100%;
+  }
+}
+.side-bnr-item--sm-col1 {
+  margin-bottom: 10px;
+  width: 100%;
+  @include max-media($screen-md) {
+    width: 49%;
+  }
+  @include max-media($screen-sm) {
+    width: 100%;
+  }
+  a {
+    display: block;
+    @include transition-delay();
+  }
+  a:hover{
+    opacity: $hover-opacity;
+  }
+  img {
+    @include img-responsive();
+    width: 100%;
+  }
+}
+
+// @ side list
+// ------------------------------
+
+.side-list-body{
+  list-style: none;
+  margin: -.8em 0 0;
+  
+  padding: 0;
+  @include max-media($screen-md){
+    display: flex;
+    -js-display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+  }
+}
+
+.side-list-item{
+  border-bottom:1px solid #ccc;
+  line-height: 1;
+  @include max-media($screen-md){
+    width: 49%;
+  }
+  @include max-media($screen-sm){
+    width: 100%;
+  }
+  @include text-overflow;
+  &.is-current{
+    padding:1em .5em;
+    background: #f4f4f4;
+    &:before{
+      @include fa-icon();
+      position: relative;
+      top: -2px;
+      content: $fa-var-angle-right;
+      padding-right: .75em;
+      font-size:.8em;
+      margin-top:-.2em;
+      opacity:.7;
+    }
+  }
+  a{
+    display: block;
+    color:$text-color;
+    text-decoration: none;
+    padding:1em .5em;
+    @include text-overflow;
+    @include transition-delay();
+    &:before{
+      @include fa-icon();
+      position: relative;
+      top: -2px;
+      content: $fa-var-angle-right;
+      padding-right: .75em;
+      font-size:.8em;
+      margin-top:-.2em;
+      opacity:.7;
+    }
+  }
+  a:hover{
+    transform: translate(.5em,0);
+  }
+}
