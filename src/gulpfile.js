@@ -27,11 +27,11 @@ config = {
     "cms_theme":"wp-content/themes/ashglow/"
   },
   "mode":{
-    static:true,         // 静的モード
-    cms:false,             // CMSモード
+    static:true,          // 静的モード
+    cms:false,            // CMSモード
     cmstype:"wordpress",  // 使用するCMSの種類
-    html:false,           // htmlを使用する場合
-    ejs:true              // ejsを使用する場合
+    html:true,           // htmlを使用する場合
+    ejs:false              // ejsを使用する場合
   }
 };
 
@@ -200,7 +200,7 @@ gulp.task('cms.imagemin', function(){
 gulp.task('copy.html',function () {
   var distDir = config.path.dist;
   //html
-  gulp.src(config.path.source + config.path.html + '**/*.html')
+  gulp.src([config.path.source + config.path.html + '**/*.html',config.path.source + config.path.html + '!/' + 'node_modules/**/*.html',config.path.source + config.path.html + '!/' + 'vendor/**/*.html',config.path.source + config.path.html + '!/' + 'hologram/**/*.html',,config.path.source + config.path.html + '!/' + 'ejs/**/*.html',config.path.source + config.path.html + '!/' + 'assets/**/*.html'])
       .pipe(gulp.dest(distDir))
       .pipe(browserSync.stream());
 });
@@ -381,6 +381,12 @@ gulp.task('cms.clean', function() {
   return del([config.path.cms + config.path.cms_dir + config.path.cms_theme],{force:true});
 });
 
+// @
+// ------------------------------------------------------------
+
+gulp.task('del', function() {
+  return del([config.path.dist+'node_modules',config.path.dist+'hologram',config.path.dist+'components'],{force:true});
+});
 
 //========================================================================
 // @ $watch
@@ -396,9 +402,9 @@ gulp.task('watch', function () {
   gulp.watch(config.path.source + config.path.sass + '/**/*.scss', ['scss','hologram','bs-reload']);
   gulp.watch(config.path.source + config.path.js + '/**/*.js', ['js','bs-reload']);
   // ------------------------------
-  gulp.watch(config.path.source + config.path.html + '/**/*.jpg', ['imagemin', 'bs-reload']);
-  gulp.watch(config.path.source + config.path.html + '/**/*.png', ['imagemin', 'bs-reload']);
-  gulp.watch(config.path.source + config.path.img + '/**/*.html', ['copy.html', 'bs-reload']);
+  gulp.watch(config.path.source + config.path.img + '/**/*.jpg', ['imagemin', 'bs-reload']);
+  gulp.watch(config.path.source + config.path.img + '/**/*.png', ['imagemin', 'bs-reload']);
+  gulp.watch(config.path.source + config.path.html + '/**/*.html', ['copy.html', 'bs-reload']);
   // ------------------------------
   gulp.watch(config.path.source + config.path.fonts + '/**/*.html', ['copy.assets', 'bs-reload']);
   gulp.watch(config.path.source + config.path.js + '/lib/**/*', ['copy.assets', 'bs-reload']);
@@ -418,9 +424,9 @@ gulp.task('watch', function () {
     gulp.watch(config.path.source + config.path.sass + '/**/*.scss', ['cms.scss','hologram','bs-reload']);
     gulp.watch(config.path.source + config.path.js + '/**/*.js', ['cms.js','bs-reload']);
     // ------------------------------
-    gulp.watch(config.path.source + config.path.html + '/**/*.jpg', ['cms.imagemin', 'bs-reload']);
-    gulp.watch(config.path.source + config.path.html + '/**/*.png', ['cms.imagemin', 'bs-reload']);
-    // gulp.watch(config.path.source + config.path.img + '/**/*.html', ['cms.copy.html', 'bs-reload']);
+    gulp.watch(config.path.source + config.path.img + '/**/*.jpg', ['cms.imagemin', 'bs-reload']);
+    gulp.watch(config.path.source + config.path.img + '/**/*.png', ['cms.imagemin', 'bs-reload']);
+    gulp.watch(config.path.source + config.path.html + '/**/*.html', ['cms.copy.html', 'bs-reload']);
     // ------------------------------
     gulp.watch(config.path.source + config.path.fonts + '/**/*.html', ['cms.copy.assets', 'bs-reload']);
     gulp.watch(config.path.source + config.path.js + '/lib/**/*', ['cms.copy.assets', 'bs-reload']);
