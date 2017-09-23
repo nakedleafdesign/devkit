@@ -14,6 +14,7 @@ config = {
     "css": "assets/css/",
     "img": "assets/img/",
     "svg": "assets/svg/",
+    "wp_assets":"assets/wp_assets/",
     "html": "./",
     "php":"php/",
     "js": "assets/js",
@@ -26,8 +27,8 @@ config = {
     "cms_theme":"wp-content/themes/ashglow/"
   },
   "mode":{
-    static:false,         // 静的モード
-    cms:true,             // CMSモード
+    static:true,         // 静的モード
+    cms:false,             // CMSモード
     cmstype:"wordpress",  // 使用するCMSの種類
     html:false,           // htmlを使用する場合
     ejs:true              // ejsを使用する場合
@@ -274,16 +275,24 @@ function ejsFunction(distDir,fileType) {
 
 // @ 静的用
 // ------------------------------
+// mytodo : 構造見直し
+// ./src/php/ ディレクトリに書き出す様に一旦指定
 
 gulp.task("ejs.html", function () {
-  ejsFunction(config.path.dist,'.html');
+  if(config.mode.cms === true && config.mode.cmstype === "wordpress"){
+    ejsFunction(config.path.source + config.path.php,'.php');
+  }else{
+    ejsFunction(config.path.dist,'.html');
+  }
 });
 
 // @ CMS用 | wordpress
 // ------------------------------
+// mytodo : 構造見直し
+// ./src/php/ ディレクトリに書き出す様に一旦指定
 
 gulp.task("cms.ejs.php", function () {
-  ejsFunction(config.path.cms + config.path.cms_dir + config.path.cms_theme,'.php');
+  ejsFunction(config.path.source + config.path.php,'.php');
 });
 
 // @ CMS用 | a-blog cms
@@ -294,6 +303,34 @@ gulp.task("cms.ejs.html", function () {
 });
 
 
+//========================================================================
+// @ cms.php | wordpress用テーマ作成時必要ファイル書き出し
+//========================================================================
+
+
+gulp.task("cms.php", function () {
+  gulp.src(config.path.source + config.path.php + '/**/*')
+      .pipe(gulp.dest(config.path.cms + config.path.cms_dir + config.path.cms_theme))
+});
+
+
+//========================================================================
+// @ wp.assets | wordpress用テーマ作成時必要ファイル書き出し
+//========================================================================
+
+gulp.task('wp.assets',function () {
+  // wordpress用 style.css 書き出し
+  if(config.mode.cmstype === "wordpress") {
+    gulp.src(config.path.source + config.path.wp_assets + '**/*.scss')
+        .pipe($.sass())
+        .pipe($.rename('style.css'))
+        .pipe(gulp.dest(config.path.cms + config.path.cms_dir + config.path.cms_theme))
+
+    gulp.src(config.path.source + config.path.wp_assets + '**/*.png')
+        .pipe(gulp.dest(config.path.cms + config.path.cms_dir + config.path.cms_theme))
+  }
+
+});
 
 //========================================================================
 // @ $browser-sync | ローカルサーバー起動
@@ -368,7 +405,7 @@ gulp.task('watch', function () {
   gulp.watch(config.path.source + config.path.svg + '/**/*', ['copy.assets', 'bs-reload']);
   gulp.watch(config.path.source + config.path.file + '/**/*', ['copy.assets', 'bs-reload']);
   // ------------------------------
-    if(conifg.mode.ejs === true) { // ejsモードがtureの場合
+    if(config.mode.ejs === true) { // ejsモードがtureの場合
       gulp.watch(config.path.source + config.path.ejs + '/**/*.ejs', ['ejs.html', 'bs-reload']);
     }
   }
@@ -436,16 +473,16 @@ gulp.task('build', function (callback) {
   if(config.mode.cms === true && config.mode.cmstype === "wordpress") {
     return runSequence(
         'cms.clean',
-        ['cms.scss', 'hologram', 'cms.js', 'cms.ejs.php', 'cms.copy.assets'],
-        'imagemin',
+        ['cms.scss', 'hologram', 'cms.js','wp.assets','cms.php', 'cms.copy.assets'],
+        'cms.imagemin',
         callback
     );
   }
   if(config.mode.cms === true && config.mode.cmstype === "acms") {
     return runSequence(
         'cms.clean',
-        ['cms.scss', 'hologram', 'cms.js', 'cms.ejs.html', 'cms.copy.assets'],
-        'imagemin',
+        ['cms.scss', 'hologram', 'cms.js', 'cms.copy.assets'],
+        'cms.imagemin',
         callback
     );
   }

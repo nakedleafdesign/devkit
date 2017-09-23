@@ -4,11 +4,6 @@
     <div class="side-bnr-item"><a href="https://twitter.com/Ashglow?lang=ja" target="_blank"><img src="../assets/img/common/bnr_twitter.jpg" alt="Twitter"></a></div>
     <div class="side-bnr-item"><a href="https://www.instagram.com/ashglow.official/?hl=ja" target="_blank"><img src="../assets/img/common/bnr_istagram.jpg" alt="Instagram"></a></div>
   </aside>
-  <aside class="side-module side-bnr-group">
-    <h2 class="side-heading01">SIDE BNR MODULE</h2>
-    <div class="side-bnr-item--sm-col1"><a href="#"><img src="http://placehold.jp/240x80.png" alt=""></a></div>
-    <div class="side-bnr-item--sm-col1"><a href="#"><img src="http://placehold.jp/240x80.png" alt=""></a></div>
-  </aside>
   <aside class="side-module side-list-group">
     <h2 class="side-heading01">News Index</h2>
     <ul class="side-list-body">

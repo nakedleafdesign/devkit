@@ -66,7 +66,23 @@ category: heading
   }
 }
 
-.heading01{
+/*doc
+---
+title: 見出し1
+name: heading01
+category: heading
+---
+
+
+```html_example
+
+<h1 class="heading01">ダミータイトル</h1>
+
+```
+
+*/
+
+@mixin heading01{
   position: relative;
   font-family:$font-family-ryumin;
   font-size: 25px;
@@ -89,8 +105,30 @@ category: heading
     
   }
 }
+.heading01{
+  @include heading01;
+}
+.entry-wrap h1{
+  @include heading01;
+}
 
-.heading02{
+/*doc
+---
+title: 見出し2
+name: heading02
+category: heading
+---
+
+
+```html_example
+
+<h1 class="heading02">ダミータイトル</h1>
+
+```
+
+*/
+
+@mixin heading02{
   position: relative;
   margin:2.5em 0 1.5em;
   padding-left: 1.25em;
@@ -114,11 +152,40 @@ category: heading
   }
 }
 
-.heading03{
+.heading02{
+  @include heading02;
+}
+.entry-wrap h2{
+  @include heading02;
+}
+
+/*doc
+---
+title: 見出し3
+name: heading03
+category: heading
+---
+
+
+```html_example
+
+<h1 class="heading03">ダミータイトル</h1>
+
+```
+
+*/
+
+@mixin heading03{
   font-size: 18px;
   margin:2.5em 0 1em;
   font-family:$font-family-ryumin;
   @include max-media($screen-sm){
     font-size: 16px;
   }
+}
+.heading03{
+  @include heading03;
+}
+.entry-wrap h3{
+  @include heading03;
 }

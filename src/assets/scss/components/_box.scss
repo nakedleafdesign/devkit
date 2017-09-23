@@ -32,3 +32,39 @@ category: box
     padding: 1em 1.2em;
   }
 }
+
+/*doc
+---
+title: ボックス01
+name: box01
+category: box
+---
+
+```html_example
+
+<div class="box01">
+  Numa / Bass&Chorus<br>
+  FT / Vocal&Guitar<br>
+  Kousuke Hashiguchi / Drums<br>
+  Masato Usuma
+</div>
+
+```
+
+*/
+
+.box01{
+  position: relative;
+  padding-left: 1.5em;
+  border-left:1px solid #ccc;
+  //&:before{
+  //  position: absolute;
+  //  top: 0;
+  //  left: 2px;
+  //  content: '';
+  //  display: inline-block;
+  //  width: 1px;
+  //  height: 100%;
+  //  background: #ccc;
+  //}
+}

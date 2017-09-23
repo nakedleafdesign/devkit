@@ -93,46 +93,46 @@ $(function () {
   // @
   // ------------------------------------------------------------
 
-  var $loadLayer = $('.js-loading-layer__layer');
-  var $loadContent = $('.js-loading-layer__content');
-  var $loadIcon = $('.js-loading-layer__icon');
-  var $step01 = $('.js-loading-layer__step01');
-  var $step02 = $('.js-loading-layer__step02');
-
-  setTimeout(function(){
-    $loadIcon.addClass('icon-level-warning');
-  },3000);
-  setTimeout(function(){
-    $loadIcon.removeClass('icon-level-warning').addClass('icon-level-danger');
-  },10000);
-
-  var winH = $(window).height();
-
-  $loadContent.css('opacity','0');
-  $step02.css('display','none');
-  $loadLayer.height(winH).css('display','block');
-
-  $(window).on('load', function () {
-    setTimeout(function(){
-      $step01.fadeOut(600);
-    },0);
-    setTimeout(function () {
-      $step02.addClass(activeClass).fadeIn(800);
-    },800);
-    setTimeout(function () {
-      $loadLayer.stop().animate({
-        width:'0',
-        opacity:0
-      }, {
-        duration: 'slow',
-        easing: 'swing',
-        complete: function () {
-          $(this).remove();
-        }
-      })
-    },1700);
-    $loadContent.css('opacity', '1');
-  });
+  // var $loadLayer = $('.js-loading-layer__layer');
+  // var $loadContent = $('.js-loading-layer__content');
+  // var $loadIcon = $('.js-loading-layer__icon');
+  // var $step01 = $('.js-loading-layer__step01');
+  // var $step02 = $('.js-loading-layer__step02');
+  //
+  // setTimeout(function(){
+  //   $loadIcon.addClass('icon-level-warning');
+  // },3000);
+  // setTimeout(function(){
+  //   $loadIcon.removeClass('icon-level-warning').addClass('icon-level-danger');
+  // },10000);
+  //
+  // var winH = $(window).height();
+  //
+  // $loadContent.css('opacity','0');
+  // $step02.css('display','none');
+  // $loadLayer.height(winH).css('display','block');
+  //
+  // $(window).on('load', function () {
+  //   setTimeout(function(){
+  //     $step01.fadeOut(600);
+  //   },0);
+  //   setTimeout(function () {
+  //     $step02.addClass(activeClass).fadeIn(800);
+  //   },800);
+  //   setTimeout(function () {
+  //     $loadLayer.stop().animate({
+  //       width:'0',
+  //       opacity:0
+  //     }, {
+  //       duration: 'slow',
+  //       easing: 'swing',
+  //       complete: function () {
+  //         $(this).remove();
+  //       }
+  //     })
+  //   },1700);
+  //   $loadContent.css('opacity', '1');
+  // });
 
 
   // @ header

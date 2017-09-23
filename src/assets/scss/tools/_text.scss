@@ -26,3 +26,20 @@
 .nowrap {
   white-space: nowrap !important
 }
+
+// @ text color
+// ------------------------------------------------------------
+.text-color-base{
+  color: $text-color;
+}
+
+.text-color-sub{
+  color: $text-color-sub;
+}
+
+// @ fontsize
+// ------------------------------------------------------------
+
+.fz_8em{
+  font-size: .8em;
+}

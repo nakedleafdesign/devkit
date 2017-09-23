@@ -75,7 +75,7 @@
   </div>
 </header>
 <main class="main-container js-header-hidden__content">
-  <section class="key-visual key-visual--darken" style="background-image: url('./assets/img/biography/img01.jpg');">
+  <section class="key-visual">
     <div class="key-visual__inner">
       <div class="key-visual__unit">
         <h1 class="key-visual__title">Biography</h1>
@@ -85,26 +85,6 @@
   </section>
   <div class="container">
     <div class="container__inner block-group">
-      <section class="container">
-        <div class="section-heading01-unit sec-brand-heading-unit">
-          <h1 class="section-heading01">「Ashglow」</h1>
-          <p class="section-heading01__lead">アッシュグロウ</p>
-        </div>
-        <div class="column-group--responsive02">
-          <figure class="column-item column-item--left img-container--flat"><img class="img-responsive" src="./assets/img/biography/img01.jpg" alt=""></figure>
-          <p>福岡県北九州市を拠点に活動をしているギターロックバンドAshglow（アッシュグロウ）2009年に結成、数回のメンバーチェンジを経て、現メンバー体制となる。<br>楽曲は主にツインギター・ベース・ドラムというバンドの基本構成を軸に、楽曲により鍵盤やシンセサイザー・ストリング等の音色を取り入れ、多彩な音色を用いて表現している。</p>
-          <div class="box01 inline-block">
-            <span class="fz_8em">L to R</span>
-            <p class="mb0">
-            Numa <span class="text-color-sub fz_8em">（Bass&Chorus）</span><span class="icon-box"><a class="icon-box__item" href="https://twitter.com/kousuke_Ashglow?langja" target="_blank"><i class="fa fa-twitter"></i></a><a class="icon-box__item" href="https://www.instagram.com/numa_ashglow/?hlja" target="_blank"><i class="fa fa-instagram"></i></span></a><br>
-            FT <span class="text-color-sub fz_8em">（Vocal&Guitar）</span><span class="icon-box"><i class="fa fa-twitter icon-box__item"></i><i class="fa fa-instagram icon-box__item"></i></span><br>
-            Kousuke Hashiguchi <span class="text-color-sub fz_8em">（Drums）</span><span class="icon-box"><i class="fa fa-twitter icon-box__item"></i><i class="fa fa-instagram icon-box__item"></i></span><br>
-            Masato Usuma <span class="text-color-sub fz_8em">（Guitar）</span><span class="icon-box"><i class="fa fa-twitter icon-box__item"></i><i class="fa fa-instagram icon-box__item"></i></span><br>
-            </p>
-          </div>
-        </div>
-
-      </section>
 
         <div class="entry">
           <h2 class="heading01">見出しレベル1</h2>

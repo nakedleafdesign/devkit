@@ -39,6 +39,7 @@ $img_path: "../../assets/img/";
 // ============================================================ //
 
 .key-visual{
+  position: relative;
   width: 100%;
   min-width: 1200px;
   height: 180px;
@@ -52,6 +53,29 @@ $img_path: "../../assets/img/";
   }
   @include max-media($screen-sm){
     height: 140px;
+  }
+  &--darken{
+    outline: red;
+    &:before{
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      height: 180px;
+      background: rgba(0,0,0,.5);
+      display: block;
+      @include max-media($screen-md) {
+        min-width: 100%;
+        height: 150px;
+        overflow-x: hidden;
+      }
+      @include max-media($screen-sm){
+        height: 140px;
+      }
+    }
   }
   &__inner{
     position: relative;
@@ -80,6 +104,9 @@ $img_path: "../../assets/img/";
     @include max-media($screen-sm) {
       @include fzem(18, 14);
     }
+    .key-visual--darken &{
+      color: #fff;
+    }
   }
   
   &__sub {
@@ -87,6 +114,9 @@ $img_path: "../../assets/img/";
     padding-left: 15px;
     @include text-overflow;
     @include fzem(13, 15);
+    .key-visual--darken &{
+      color: #fff;
+    }
     &:before{
       position: absolute;
       top:50%;
@@ -97,6 +127,9 @@ $img_path: "../../assets/img/";
       width: 10px;
       height: 1px;
       background:$text-color;
+      .key-visual--darken &{
+        background:#fff;
+      }
       @include max-media($screen-sm){
         width: 5px;
       }

@@ -49,32 +49,34 @@
 
 // @ Module
 // ------------------------------
-@import "./module/accordion";
-@import "./module/alert";
-@import "./module/badge";
-@import "./module/blockquote";
-@import "./module/box";
-@import "./module/btn";
-@import "./module/form";
-@import "./module/google-map";
-@import "./module/grid";
-@import "./module/heading";
-@import "./module/img";
-@import "./module/label";
-@import "./module/list";
-@import "./module/module";
-@import "./module/nav";
-@import "./module/pagenation";
-@import "./module/pager";
-@import "./module/pagetop";
-@import "./module/side";
-@import "./module/tab";
-@import "./module/table";
-@import "./module/text";
-@import "./module/tooltip";
-@import "./module/unit";
-@import "./module/video";
-@import "./module/visual";
+@import "components/accordion";
+@import "components/alert";
+@import "components/badge";
+@import "components/blockquote";
+@import "components/box";
+@import "components/btn";
+@import "components/column";
+@import "components/form";
+@import "components/google-map";
+@import "components/grid";
+@import "components/heading";
+@import "components/icon-box";
+@import "components/img";
+@import "components/label";
+@import "components/list";
+@import "components/module";
+@import "components/nav";
+@import "components/pagenation";
+@import "components/pager";
+@import "components/pagetop";
+@import "components/side";
+@import "components/tab";
+@import "components/table";
+@import "components/text";
+@import "components/tooltip";
+@import "components/unit";
+@import "components/video";
+@import "components/visual";
 
 // @ Tools
 // ------------------------------
@@ -86,6 +88,7 @@
 @import "./tools/visible";
 @import "./tools/color";
 @import "./tools/util";
+@import "./tools/display";
 
 // @ page
 // ------------------------------

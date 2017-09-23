@@ -3,10 +3,12 @@
 
 .side-module {
   margin-bottom: 2em;
-  @include max-media($screen-md) {
-    margin-bottom: 1em;
+  @include max-media($screen-md){
+    margin-bottom: 2.3em;
   }
-  
+  &:last-child{
+    margin-bottom: 0;
+  }
 }
 
 // @ side-heading01

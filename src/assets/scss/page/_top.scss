@@ -209,17 +209,17 @@ $img_path: "../../assets/img/";
   @include min-media($screen-sm){
     &:first-child,
     &:nth-child(2){
-      border-top:none;
+       //border-top:none;
     }
   }
   @include max-media($screen-sm){
     &:first-child{
-      border-top:none;
+      //border-top:none;
     }
   }
   
   &:hovre{
-    border-top:none;
+    //border-top:none;
   }
   &:hover::before,
   &:hover::after {
