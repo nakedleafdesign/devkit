@@ -2,23 +2,3 @@
 // @ icon-box
 // ------------------------------------------------------------ */
 
-.icon-box{
-  border-left:1px solid #ccc;
-  margin-left: .5em;
-  padding-left:.7em;
-  .icon-box__item{
-    margin-right: .5em;
-    color: $text-color;
-    @include link-hover();
-    &:link,
-    &:active,
-    &:hover,
-    &:visited,
-    &:focus{
-      color: $text-color;
-    }
-    &:last-child{
-      margin-right: 0;
-    }
-  }
-}
