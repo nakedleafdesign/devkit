@@ -189,3 +189,14 @@ category: heading
 .entry-wrap h3{
   @include heading03;
 }
+
+.test-heading01{
+  background: #333;
+  color: #fff;
+  padding:.5em 1em;
+  border-radius:5px;
+  margin-bottom: 1em;
+  @include max-media($screen-md){
+    background: #cc0000;
+  }
+}

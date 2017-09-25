@@ -154,3 +154,12 @@
   }
 }
 
+.wrapper{
+  width: 100%;
+  max-width:900px;
+  margin:0 auto;
+  @include max-media($screen-md){
+    padding:0 3%;
+  }
+}
+
